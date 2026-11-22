@@ -147,8 +147,8 @@
   .livre-couv img, .nouveaute-couv img, .ligne img {
     box-shadow: 0 1px 2px rgba(0,0,0,.2), 0 6px 18px rgba(0,0,0,.12);
   }
-  .livre-couv img.haut { height: 100%; max-height: 100%; width: auto; max-width: 100%; }
-  .livre-couv img.large { width: 100%; height: auto; }
+  .livre-couv img.haut { height: 100%; max-height: 100%; width: auto; max-width: 100%; object-fit: contain; }
+  .livre-couv img.large { width: 100%; height: auto; max-height: 100%; object-fit: contain; }
   .livre-corps { display: flex; flex-direction: column; flex: 1; }
   .livre-nouveau { margin: 0 0 .3rem; font-family: var(--sans); font-weight: 700; font-size: .95rem; color: var(--accent); }
   .livre-titre { font-size: 1.3rem; margin: 0 0 .15rem; }
@@ -463,7 +463,7 @@
 
       <article class="nouveaute" aria-labelledby="titre-nouveaute">
         <button type="button" class="nouveaute-couv" data-zoom="14" aria-label="Voir en grand la couverture de « Le Silence des innocents »">
-          <img src="images/kirk-silence-des-innocents.jpg" width="550" height="821" alt="Couverture du livre « Le Silence des innocents »" loading="lazy" decoding="async">
+          <img src="images/kirk-silence-des-innocents.jpg" width="804" height="1200" alt="Couverture du livre « Le Silence des innocents »" loading="lazy" decoding="async">
         </button>
         <div>
           <p class="livre-nouveau">Nouveauté</p>
@@ -663,11 +663,11 @@
       title: "Le Dictionnaire biographique", subtitle: "Arméniens d'hier et d'aujourd'hui", author: "Ara Krikorian", coauthor: "Hraïr Heratchian",
       preface: "Préface : Vincent Duclert", year: 2021, publisher: "Kirk Publishing", pages: 680, price: 39,
       description: "Près de 700 pages de portraits : figures de la résistance, du combat politique, de la réussite économique et de l'intégration au sein de la diaspora arménienne. Un outil essentiel." },
-    { id: 3, group: 'ara', img: 'images/livre-3.jpg', w: 600, h: 900,
+    { id: 3, group: 'ara', img: 'images/livre-3.jpg', w: 790, h: 1200,
       title: "Arménophiles", subtitle: "Dictionnaire monographique", author: "Ara Krikorian", coauthor: "Hraïr Heratchian",
       preface: "Préface : Jean-Pierre Mahé", year: 2019, publisher: "Kirk Publishing", pages: null, price: 30,
       description: "600 notices biographiques et 300 notices bibliographiques sur des personnalités ayant eu des liens avec le peuple arménien. Un outil essentiel de la vie arménienne." },
-    { id: 5, group: 'ara', img: 'images/livre-5.jpg', w: 600, h: 900,
+    { id: 5, group: 'ara', img: 'images/livre-5.jpg', w: 1023, h: 1023,
       title: "Arménie éternelle", subtitle: "Grandes figures", author: "Ara Krikorian", coauthor: "Hraïr Heratchian",
       preface: "Préface : Mikaël Nichanian", year: 2016, publisher: "Kirk Publishing", pages: 283, price: 29,
       description: "Plus de 250 personnalités arméniennes présentées par ordre alphabétique, dans les domaines de la littérature, de la peinture, de l'architecture, de la musique et du cinéma. Un hommage à la culture arménienne bimillénaire." },
@@ -677,9 +677,9 @@
       description: "Un millier d'entrées (personnes, faits, lieux, institutions, dates) sur la cause arménienne du XIXe siècle à nos jours, avec une chronologie détaillée et une bibliographie inédite." },
     { id: 6, group: 'ara', img: 'images/livre-6.jpg', w: 600, h: 900,
       title: "Christapor Mikaëlian et le sultan turc", subtitle: "Le Grand Défi, volume 1", author: "Ara Krikorian", coauthor: null,
-      preface: null, year: 2015, publisher: "Édipol", pages: null, price: 24,
+      preface: null, year: 2014, publisher: "Édipol", pages: null, price: 24,
       description: "Biographie du fondateur de la Fédération révolutionnaire arménienne (Dachnaktsoutioun) : ses confrontations avec le pouvoir ottoman et son rôle au sommet de la révolution arménienne." },
-    { id: 8, group: 'ara', img: 'images/livre-8.jpg', w: 600, h: 900,
+    { id: 8, group: 'ara', img: 'images/livre-8.jpg', w: 400, h: 601,
       title: "Christapor Mikaëlian et son temps", subtitle: "Repères, volume 2", author: "Ara Krikorian", coauthor: null,
       preface: null, year: 2015, publisher: "Édipol", pages: null, price: 16,
       description: "Chronologie générale des événements, cinq cents biographies illustrées, noms des lieux géographiques, organisations, titres de journaux, glossaire et sources bibliographiques." },
@@ -688,7 +688,7 @@
       preface: null, year: 1981, publisher: "Éditions Diasporas", pages: 292, price: 18,
       description: "Le récit du procès de Soghomon Tehlirian, qui assassina en 1921 Talaat Pacha, principal responsable du génocide des Arméniens. Un acte de mémoire fondateur." },
 
-    { id: 14, group: 'autres', isNew: true, img: 'images/kirk-silence-des-innocents.jpg', w: 550, h: 821,
+    { id: 14, group: 'autres', isNew: true, img: 'images/kirk-silence-des-innocents.jpg', w: 804, h: 1200,
       title: "Le Silence des innocents", subtitle: "Du génocide à l'exil", author: "Maurice Dolmadjian", coauthor: null,
       preface: null, year: null, publisher: "Kirk Publishing", pages: null, price: 25,
       description: "Face au silence de ses grands-parents, Maurice Dolmadjian recueille le récit de sa grand-mère Véhanouche, rescapée du génocide, de son enfance jusqu'à son exil en France. Une mémoire familiale marquée par les atrocités du génocide." },
@@ -696,23 +696,23 @@
       title: "Les Arméniens en terre de France", subtitle: null, author: "Hrant Norsen", coauthor: null,
       preface: "Préfaces : Hasmik Tolmajian et David Lisnard", year: null, publisher: "Kirk Publishing", pages: null, price: 30,
       description: "Un inventaire illustré par plus de 1 000 photographies : monuments, lieux de culte, rues et places, personnalités, écoles et centres culturels qui témoignent de la présence arménienne dans plus de 280 communes françaises." },
-    { id: 16, group: 'autres', img: 'images/kirk-les-justes.jpg', w: 550, h: 818,
+    { id: 16, group: 'autres', img: 'images/kirk-les-justes.jpg', w: 807, h: 1200,
       title: "Les “Justes” face au génocide des Arméniens", subtitle: null, author: "Hilda Kalfayan-Panossian", coauthor: null,
       preface: "Préface : Vincent Duclert", year: null, publisher: "Kirk Publishing", pages: null, price: 30,
       description: "Danois, Suédois, Norvégiens, Américains, Français et Turcs : le portrait de ceux qui, au péril de leur vie, ont aidé, caché, soigné et sauvé des Arméniens pendant le génocide de 1915." },
-    { id: 17, group: 'autres', img: 'images/kirk-souvenirs-enfant-deporte.jpg', w: 375, h: 550,
+    { id: 17, group: 'autres', img: 'images/kirk-souvenirs-enfant-deporte.jpg', w: 463, h: 675,
       title: "Souvenirs d'un enfant déporté", subtitle: "De Papert à Marseille", author: "Haïrabed Barsamian", coauthor: null,
-      preface: "Préface : Raymond H. Kévorkian", year: null, publisher: "Kirk Publishing", pages: null, price: 15,
+      preface: "Préface : Raymond H. Kévorkian", year: 2019, publisher: "Kirk Publishing", pages: null, price: 15,
       description: "Le récit autobiographique d'un enfant déporté en 1915 : la vie paisible de sa famille, puis les déportations, de Papert jusqu'à Marseille. Traduit de l'arménien et annoté par Araksi Barsamian-Adjémian." },
     { id: 12, group: 'autres', img: 'images/livre-12.jpg', w: 600, h: 900,
       title: "Meurs et deviens", subtitle: "Du génocide à l'exil", author: "Maurice Dolmadjian", coauthor: null,
       preface: null, year: 2021, publisher: "Kirk Publishing", pages: null, price: 24,
       description: "Récit de la meurtrière déportation vécue par les familles arméniennes de Turquie, victimes du génocide conçu, organisé et exécuté en 1915-1916 par le régime des Jeunes-Turcs. Un témoignage bouleversant sur le chemin de l'exil." },
     { id: 9, group: 'autres', img: 'images/livre-9.jpg', w: 600, h: 900,
-      title: "Le Clan des IAN", subtitle: "Album de caricatures", author: "HOVIV", coauthor: null,
-      preface: null, year: 2010, publisher: "Édipol", pages: 88, price: 15,
+      title: "Le Clan des IAN", subtitle: "Arménité d'abord !", author: "HOVIV", coauthor: null,
+      preface: null, year: 2004, publisher: "Édipol", pages: 88, price: 15,
       description: "150 dessins décapants et irrésistiblement drôles : HOVIV tourne en dérision les Arméniens de la diaspora et leur nationalisme à fleur de peau, avec talent et une profonde tendresse pour ses origines. Un livre plein d'humour." },
-    { id: 10, group: 'autres', img: 'images/livre-10.jpg', w: 600, h: 900,
+    { id: 10, group: 'autres', img: 'images/livre-10.jpg', w: 569, h: 600,
       title: "Trois contes arméniens", subtitle: "Édition bilingue illustrée (français-arménien)", author: "Hovhannès Toumanian", coauthor: null,
       preface: "Traduction : Jean Guréghian et Denis Donikian", year: 2006, publisher: "Édipol", pages: null, price: 13,
       description: "Trois contes du grand poète Toumanian (Le chien et le chat, L'imbécile, La goutte de miel), réunis dans un livre bilingue français-arménien et illustrés par des enfants du Centre national des beaux-arts d'Erevan." },
@@ -740,7 +740,7 @@
   /* Affichage des livres */
   function carte(b) {
     var meta = [b.publisher, b.year, b.pages ? b.pages + ' pages' : null].filter(Boolean).join(', ');
-    var forme = b.h >= b.w ? 'haut' : 'large';
+    var forme = (b.h / b.w >= 1.25) ? 'haut' : 'large';
     return '<article class="livre">' +
       '<button type="button" class="livre-couv" data-zoom="' + b.id + '" aria-label="Voir en grand la couverture de « ' + esc(b.title) + ' »">' +
         '<img class="' + forme + '" src="' + b.img + '" width="' + b.w + '" height="' + b.h + '" alt="Couverture du livre « ' + esc(b.title) + ' »" loading="lazy" decoding="async">' +
