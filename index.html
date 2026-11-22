@@ -3,39 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ara Krikorian — Auteur, historien et éditeur · Kirk Publishing</title>
+<title>Ara Krikorian, auteur et éditeur | Kirk Publishing</title>
 <meta name="description" content="Les livres d'Ara Krikorian, militant de la cause arménienne, historien et éditeur, et les titres de sa maison d'édition Kirk Publishing. Commande simple, frais de port offerts.">
-<meta name="theme-color" content="#1F3658">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:title" content="Ara Krikorian — Auteur & Kirk Publishing">
-<meta property="og:description" content="Histoire, mémoire et culture arméniennes : les livres d'Ara Krikorian et de Kirk Publishing. Frais de port offerts.">
+<meta property="og:title" content="Ara Krikorian, auteur et éditeur">
+<meta property="og:description" content="Les livres d'Ara Krikorian et de Kirk Publishing : histoire, mémoire et culture arméniennes. Frais de port offerts.">
 <meta property="og:url" content="https://chaheennsi.github.io/site-ara/">
 <meta property="og:image" content="https://chaheennsi.github.io/site-ara/images/ara-krikorian.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F3658'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='36' font-weight='700' fill='%23FBF7EF' text-anchor='middle'%3EA%3C/text%3E%3Crect x='12' y='49' width='14' height='5' fill='%23D90012'/%3E%3Crect x='25' y='49' width='14' height='5' fill='%230033A0'/%3E%3Crect x='38' y='49' width='14' height='5' fill='%23F2A800'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231A1A1A'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' fill='%23FFFFFF' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
 <script>try{var t=localStorage.getItem('ara-taille'),E=[0.9,1,1.15,1.3,1.45];if(t!==null&&E[t])document.documentElement.style.setProperty('--echelle',E[t]);}catch(e){}</script>
 <style>
-  /* ===== Couleurs et réglages =====
-     Fond « papier » crème, encre presque noire, bleu nuit pour les titres et boutons,
-     rouge et abricot en rappel du drapeau arménien. Tous les textes dépassent le contraste AA. */
+  /* Présentation sobre de librairie : fond blanc, typographie de livre, filets fins,
+     une seule couleur d'accent (rouge sombre). Texte de 19 à 20 px, contrastes élevés. */
   :root {
-    --papier: #FBF7EF;
-    --papier-2: #F3ECDF;
-    --blanc: #FFFFFF;
-    --encre: #1C1C1C;
-    --encre-2: #45403A;
-    --nuit: #1F3658;
-    --nuit-fonce: #142640;
-    --rouge: #A51C30;
-    --abricot: #E8A33D;
-    --abricot-pale: #FCEFD9;
+    --fond: #FFFFFF;
+    --fond-2: #F5F3EF;
+    --texte: #1A1A1A;
+    --texte-2: #4A4A4A;
+    --filet: #D9D5CC;
+    --accent: #8E1B1B;
+    --accent-fonce: #6B1212;
     --vert: #2E6B3A;
-    --trait: #D9CFBD;
-    --rayon: 14px;
-    --ombre: 0 2px 6px rgba(31,54,88,.08), 0 12px 32px rgba(31,54,88,.10);
+    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --echelle: 1;
   }
 
@@ -47,32 +42,18 @@
   }
   @media (min-width: 700px) { html { font-size: calc(125% * var(--echelle)); } }
   @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-  [id] { scroll-margin-top: 110px; }
+  [id] { scroll-margin-top: 100px; }
 
-  body {
-    margin: 0;
-    background: var(--papier);
-    color: var(--encre);
-    font-family: 'Atkinson Hyperlegible', Verdana, Arial, sans-serif;
-    line-height: 1.65;
-  }
+  body { margin: 0; background: var(--fond); color: var(--texte); font-family: var(--serif); line-height: 1.6; }
   body.bloque { overflow: hidden; }
   img { max-width: 100%; height: auto; display: block; }
-  h1, h2, h3, h4 {
-    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-    color: var(--nuit);
-    line-height: 1.2;
-    margin: 0 0 .5em;
-    font-weight: 700;
-    text-wrap: balance;
-  }
-  h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; color: var(--texte); line-height: 1.2; margin: 0 0 .5em; }
+  h2 { font-size: clamp(1.9rem, 3.5vw, 2.5rem); }
   p { margin: 0 0 1em; }
-  a { color: var(--nuit); text-decoration-thickness: 2px; text-underline-offset: .18em; }
-  a:hover { color: var(--rouge); }
+  a { color: var(--texte); text-decoration-thickness: 1px; text-underline-offset: .2em; }
+  a:hover { color: var(--accent); }
   button { font: inherit; cursor: pointer; }
-  :focus-visible { outline: 3px solid var(--nuit); outline-offset: 3px; border-radius: 4px; }
-  .sur-fonce :focus-visible { outline-color: var(--abricot); }
+  :focus-visible { outline: 3px solid var(--texte); outline-offset: 3px; }
   dialog:not([open]) { display: none; }
 
   .vh {
@@ -81,347 +62,263 @@
   }
   .conteneur { width: min(100% - 2.5rem, 1180px); margin-inline: auto; }
   .evitement {
-    position: absolute; left: 1rem; top: -200px; z-index: 1000;
-    background: var(--nuit); color: #fff; padding: .75rem 1.25rem; border-radius: 8px; font-weight: 700;
+    position: absolute; left: 1rem; top: -200px; z-index: 1000; padding: .75rem 1.25rem;
+    background: var(--texte); color: #fff; font-family: var(--sans); font-weight: 600;
   }
   .evitement:focus { top: 1rem; color: #fff; }
 
-  /* ===== Boutons ===== */
+  /* Boutons */
   .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
-    min-height: 56px; padding: .8rem 1.6rem; border-radius: 12px; border: 2px solid transparent;
-    font-weight: 700; font-size: 1.05rem; line-height: 1.25; text-align: center; text-decoration: none;
-    transition: background-color .2s, color .2s, border-color .2s;
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    min-height: 54px; padding: .75rem 1.4rem; border: 2px solid transparent; border-radius: 3px;
+    font-family: var(--sans); font-weight: 600; font-size: 1.05rem; line-height: 1.25;
+    text-align: center; text-decoration: none; transition: background-color .15s, border-color .15s;
   }
-  .btn-plein { background: var(--nuit); color: #fff; border-color: var(--nuit); }
-  .btn-plein:hover { background: var(--nuit-fonce); border-color: var(--nuit-fonce); color: #fff; }
-  .btn-contour { background: var(--blanc); color: var(--nuit); border-color: var(--nuit); }
-  .btn-contour:hover { background: var(--papier-2); color: var(--nuit); }
-  .btn-abricot { background: var(--abricot); color: var(--encre); border-color: var(--abricot); }
-  .btn-abricot:hover { background: #F2B65C; color: var(--encre); }
-  .btn:disabled { opacity: .65; cursor: wait; }
+  .btn-plein { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn-plein:hover { background: var(--accent-fonce); border-color: var(--accent-fonce); color: #fff; }
+  .btn-contour { background: #fff; border-color: var(--texte); color: var(--texte); }
+  .btn-contour:hover { background: var(--fond-2); color: var(--texte); }
+  .btn:disabled { opacity: .6; cursor: wait; }
 
-  /* ===== En-tête ===== */
-  .drapeau { height: 8px; background: linear-gradient(90deg, #D90012 0 33.33%, #0033A0 33.33% 66.66%, #F2A800 66.66%); }
-  .entete {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(251,247,239,.97);
-    border-bottom: 1px solid var(--trait);
-    transition: box-shadow .2s;
-  }
-  .entete.ombre { box-shadow: 0 6px 20px rgba(31,54,88,.12); }
-  .entete-inner { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1.25rem; padding-block: .7rem; }
-  .logo { display: flex; flex-direction: column; margin-right: auto; text-decoration: none; color: var(--nuit); line-height: 1.15; }
-  .logo:hover { color: var(--nuit); }
-  .logo-nom { font-family: 'Source Serif 4', Georgia, serif; font-weight: 700; font-size: 1.45rem; }
-  .logo-sous { font-size: .8rem; color: var(--encre-2); }
-  .menu ul { list-style: none; display: flex; flex-wrap: wrap; gap: .2rem; margin: 0; padding: 0; }
-  .menu a {
-    display: block; padding: .55rem .7rem; border-radius: 8px;
-    color: var(--encre); font-weight: 700; font-size: .95rem; text-decoration: none;
-  }
-  .menu a:hover { background: var(--papier-2); color: var(--nuit); text-decoration: underline; }
+  /* En-tête */
+  .entete { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--filet); }
+  .entete-inner { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1.5rem; padding-block: .75rem; }
+  .logo { display: flex; flex-direction: column; margin-right: auto; color: var(--texte); text-decoration: none; line-height: 1.15; }
+  .logo:hover { color: var(--texte); }
+  .logo-nom { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; }
+  .logo-sous { font-family: var(--sans); font-size: .85rem; color: var(--texte-2); }
+  .menu ul { list-style: none; display: flex; flex-wrap: wrap; gap: .25rem; margin: 0; padding: 0; }
+  .menu a { display: block; padding: .5rem .7rem; font-family: var(--sans); font-size: 1rem; color: var(--texte); text-decoration: none; }
+  .menu a:hover { color: var(--accent); text-decoration: underline; }
   .outils { display: flex; align-items: center; gap: .6rem; }
-  .taille { display: flex; border: 2px solid var(--nuit); border-radius: 10px; overflow: hidden; background: var(--blanc); }
+  .taille { display: flex; }
   .taille button {
-    min-width: 50px; min-height: 48px; padding: 0 .6rem; border: 0;
-    background: var(--blanc); color: var(--nuit); font-weight: 700; font-size: 1rem;
+    min-width: 50px; min-height: 48px; padding: 0 .6rem;
+    background: #fff; color: var(--texte); border: 1px solid var(--texte);
+    font-family: var(--sans); font-weight: 600; font-size: 1rem;
   }
-  .taille button + button { border-left: 2px solid var(--nuit); }
-  .taille button:hover { background: var(--papier-2); }
-  .taille button:disabled { opacity: .35; cursor: not-allowed; }
+  .taille button + button { border-left: 0; }
+  .taille button:hover { background: var(--fond-2); }
+  .taille button:disabled { color: #9A9A9A; border-color: #9A9A9A; cursor: not-allowed; }
+  .taille button + button:disabled, .taille button:disabled + button { border-left: 1px solid #9A9A9A; }
   .taille-ligne { display: none; }
   .btn-panier, .btn-menu {
-    position: relative; display: inline-flex; align-items: center; gap: .5rem;
-    min-height: 48px; padding: .4rem 1rem; border-radius: 10px; font-weight: 700; font-size: 1rem;
+    display: inline-flex; align-items: center; gap: .5rem; min-height: 48px; padding: .4rem 1rem;
+    border-radius: 3px; font-family: var(--sans); font-weight: 600; font-size: 1rem;
   }
-  .btn-panier { background: var(--nuit); color: #fff; border: 2px solid var(--nuit); }
-  .btn-panier:hover { background: var(--nuit-fonce); }
-  .btn-panier.pulse { animation: pulse .6s ease; }
-  @keyframes pulse { 50% { transform: scale(1.1); } }
-  .badge {
-    display: inline-grid; place-items: center; min-width: 1.7em; height: 1.7em; padding: 0 .35em;
-    border-radius: 999px; background: var(--abricot); color: var(--encre); font-size: .85rem; font-weight: 700; line-height: 1;
-  }
-  .btn-menu { display: none; background: var(--blanc); color: var(--nuit); border: 2px solid var(--nuit); }
+  .btn-panier { background: var(--accent); color: #fff; border: 2px solid var(--accent); }
+  .btn-panier:hover { background: var(--accent-fonce); border-color: var(--accent-fonce); }
+  .btn-menu { display: none; background: #fff; color: var(--texte); border: 2px solid var(--texte); }
 
-  /* ===== Accueil ===== */
-  .accueil {
-    overflow: hidden;
-    padding-block: clamp(2.5rem, 6vw, 5rem);
-    background: radial-gradient(ellipse at 85% 35%, #F5E3C4 0, rgba(245,227,196,0) 60%), var(--papier);
-  }
-  .accueil-grille { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-  .surtitre { font-weight: 700; color: var(--rouge); font-size: 1rem; letter-spacing: .02em; margin-bottom: .4rem; }
-  .accueil h1 { font-size: clamp(2.6rem, 6vw, 4.1rem); margin-bottom: .3em; }
-  .chapeau { font-size: 1.2rem; color: var(--encre-2); max-width: 34em; }
-  .boutons { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.75rem 0; }
-  .atouts { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
-  .atouts li { display: flex; align-items: center; gap: .7rem; font-weight: 700; }
-  .atouts svg { flex: none; width: 30px; height: 30px; padding: 6px; border-radius: 50%; background: var(--vert); color: #fff; }
-  .vitrine { position: relative; aspect-ratio: 20 / 17; width: 100%; }
-  .vitrine img { position: absolute; width: 46%; border-radius: 3px 6px 6px 3px; box-shadow: 0 18px 40px rgba(31,54,88,.30); }
-  .vitrine img:nth-child(1) { left: 2%; top: 12%; transform: rotate(-7deg); }
-  .vitrine img:nth-child(2) { left: 27%; top: 3%; z-index: 2; }
-  .vitrine img:nth-child(3) { left: 52%; top: 12%; transform: rotate(7deg); }
+  /* Sections */
+  .section { padding-block: clamp(3rem, 6vw, 5rem); border-top: 1px solid var(--filet); }
+  .section-grise { background: var(--fond-2); }
+  .chapeau { font-size: 1.15rem; color: var(--texte-2); max-width: 40em; }
 
-  /* ===== Sections ===== */
-  .section { padding-block: clamp(3rem, 7vw, 5.5rem); }
-  .section-alt { background: var(--papier-2); }
-  .filet {
-    width: 84px; height: 5px; border-radius: 3px; margin: -.1rem 0 1.5rem;
-    background: linear-gradient(90deg, #D90012 0 33.3%, #0033A0 33.3% 66.6%, #F2A800 66.6%);
-  }
-  .intro { font-size: 1.15rem; color: var(--encre-2); max-width: 42em; }
+  /* Ouverture */
+  .intro { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+  .intro-grille { display: grid; grid-template-columns: 1.35fr .65fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+  .intro h1 { font-size: clamp(2.6rem, 5.5vw, 3.8rem); margin-bottom: .2em; }
+  .intro-sous { font-family: var(--sans); font-size: 1.05rem; color: var(--texte-2); margin-bottom: 1.5rem; }
+  .lede { font-size: 1.25rem; max-width: 32em; }
+  .infos { font-family: var(--sans); color: var(--texte-2); max-width: 36em; }
+  .boutons { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.75rem; }
+  .portrait { margin: 0; justify-self: end; max-width: 380px; width: 100%; }
+  .portrait img { width: 100%; }
+  .portrait figcaption { margin-top: .5rem; font-family: var(--sans); font-size: .9rem; color: var(--texte-2); }
 
-  /* ===== L'auteur ===== */
-  .auteur-grille { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
-  .auteur-photo {
-    margin: 0; padding: 1rem 1rem .75rem; background: var(--blanc);
-    border: 1px solid var(--trait); border-radius: var(--rayon); box-shadow: var(--ombre);
-  }
-  .auteur-photo img { width: 100%; border-radius: 8px; }
-  .auteur-photo figcaption { text-align: center; color: var(--encre-2); padding-top: .6rem; font-size: .95rem; }
-  .citation {
-    margin: 2rem 0 0; padding: 1.5rem 1.75rem;
-    background: var(--abricot-pale); border-left: 6px solid var(--abricot); border-radius: 0 var(--rayon) var(--rayon) 0;
-  }
-  .citation p { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.25rem; font-style: italic; color: var(--nuit); margin: 0 0 .5rem; }
-  .citation footer { font-weight: 700; color: var(--encre-2); }
-  .chiffres { list-style: none; padding: 0; margin: 3rem 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-  .chiffres li { background: var(--blanc); border: 1px solid var(--trait); border-top: 6px solid var(--rouge); border-radius: var(--rayon); padding: 1.2rem 1.25rem 1.35rem; }
-  .chiffres li:nth-child(2) { border-top-color: #0033A0; }
-  .chiffres li:nth-child(3) { border-top-color: var(--abricot); }
-  .chiffres li:nth-child(4) { border-top-color: var(--nuit); }
-  .chiffre { display: block; font-family: 'Source Serif 4', Georgia, serif; font-size: 2.2rem; font-weight: 700; color: var(--nuit); line-height: 1.1; }
-  .chiffre-lib { display: block; margin-top: .35rem; color: var(--encre-2); }
+  /* Comment commander */
+  .commander { margin-top: 2rem; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--filet); }
+  .commander h3 { font-size: 1.4rem; margin-bottom: .8rem; }
+  .etapes { margin: 0 0 1rem; padding-left: 1.6rem; }
+  .etapes li { margin-bottom: .55rem; padding-left: .3rem; }
+  .etapes li::marker { font-weight: 600; }
+  .commander > p { margin: 0; }
 
-  /* ===== Comment commander ===== */
-  .commander {
-    margin: 2rem 0 1rem; padding: clamp(1.25rem, 3vw, 2rem);
-    background: var(--blanc); border: 1px solid var(--trait); border-radius: var(--rayon); box-shadow: var(--ombre);
-  }
-  .commander h3 { font-size: 1.5rem; margin-bottom: 1.1rem; }
-  .etapes { list-style: none; margin: 0 0 1.25rem; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem 1.75rem; }
-  .etape { display: flex; gap: 1rem; align-items: flex-start; }
-  .num {
-    flex: none; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%;
-    background: var(--nuit); color: #fff; font-family: 'Source Serif 4', Georgia, serif; font-weight: 700; font-size: 1.3rem;
-  }
-  .etape-titre { font-weight: 700; color: var(--nuit); font-size: 1.1rem; margin: 0 0 .2rem; }
-  .etape p { margin: 0; }
-  .etape p + p { color: var(--encre-2); }
-  .aide { margin: 0; padding-top: 1rem; border-top: 1px solid var(--trait); }
-
-  /* ===== Livres ===== */
-  .groupe-titre { display: flex; align-items: center; gap: 1rem; font-size: 1.6rem; margin: 3rem 0 1.4rem; }
-  .groupe-titre::after { content: ""; flex: 1; height: 2px; background: var(--trait); }
-  .grille-livres { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); gap: 1.75rem; }
-  .livre {
-    display: flex; flex-direction: column; overflow: hidden;
-    background: var(--blanc); border: 1px solid var(--trait); border-radius: var(--rayon); box-shadow: var(--ombre);
-  }
+  /* Livres */
+  .groupe-titre { font-size: 1.6rem; margin: 3.5rem 0 2rem; padding-bottom: .6rem; border-bottom: 1px solid var(--texte); }
+  .grille-livres { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 3.25rem 2.5rem; }
+  .livre { display: flex; flex-direction: column; }
   .livre-couv {
-    position: relative; display: flex; align-items: center; justify-content: center;
-    width: 100%; aspect-ratio: 4 / 5; padding: 1.5rem; border: 0; border-bottom: 1px solid var(--trait);
-    background: var(--papier-2); border-radius: 0;
+    display: flex; align-items: flex-end; justify-content: center;
+    width: 100%; aspect-ratio: 4 / 5; min-height: 0; margin: 0 0 1.25rem; padding: 0;
+    background: none; border: 0; border-bottom: 1px solid var(--filet); cursor: zoom-in;
   }
-  .livre-couv img {
-    max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;
-    border-radius: 2px 5px 5px 2px; box-shadow: 0 10px 24px rgba(31,54,88,.28); transition: transform .25s;
+  .livre-couv img, .nouveaute-couv img, .ligne img {
+    box-shadow: 0 1px 2px rgba(0,0,0,.2), 0 6px 18px rgba(0,0,0,.12);
   }
-  .livre-couv:hover img { transform: translateY(-4px); }
-  .loupe {
-    position: absolute; right: .7rem; bottom: .7rem; display: inline-flex; align-items: center; gap: .35rem;
-    padding: .3rem .75rem; border-radius: 999px; background: rgba(255,255,255,.96); color: var(--nuit);
-    font-size: .85rem; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,.12);
-  }
-  .livre-corps { display: flex; flex-direction: column; flex: 1; padding: 1.4rem 1.4rem 1.5rem; }
-  .pastille {
-    align-self: flex-start; margin-bottom: .6rem; padding: .2rem .75rem; border-radius: 999px;
-    background: var(--rouge); color: #fff; font-size: .85rem; font-weight: 700;
-  }
-  .livre-titre { font-size: 1.3rem; margin-bottom: .2rem; }
-  .livre-sous { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; color: var(--nuit); font-size: 1.05rem; margin-bottom: .5rem; }
-  .livre-auteur { font-weight: 700; margin-bottom: .25rem; }
-  .livre-meta { font-size: .92rem; color: var(--encre-2); margin-bottom: .8rem; }
-  .livre-desc { margin-bottom: 1.2rem; }
-  .livre-achat { margin-top: auto; display: flex; flex-direction: column; gap: .75rem; padding-top: 1rem; border-top: 1px solid var(--trait); }
-  .livre-prix { margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.7rem; font-weight: 700; color: var(--nuit); }
-  .livre-prix small { font-family: 'Atkinson Hyperlegible', Verdana, sans-serif; font-size: .85rem; font-weight: 400; color: var(--encre-2); }
+  .livre-couv img.haut { height: 100%; max-height: 100%; width: auto; max-width: 100%; }
+  .livre-couv img.large { width: 100%; height: auto; }
+  .livre-corps { display: flex; flex-direction: column; flex: 1; }
+  .livre-nouveau { margin: 0 0 .3rem; font-family: var(--sans); font-weight: 700; font-size: .95rem; color: var(--accent); }
+  .livre-titre { font-size: 1.3rem; margin: 0 0 .15rem; }
+  .livre-sous { font-style: italic; margin: 0 0 .45rem; }
+  .livre-auteur { margin: 0 0 .2rem; font-family: var(--sans); font-weight: 600; font-size: 1rem; }
+  .livre-meta { margin: 0 0 .85rem; font-family: var(--sans); font-size: .9rem; color: var(--texte-2); }
+  .livre-desc { margin: 0 0 1.25rem; }
+  .livre-achat { margin-top: auto; display: flex; flex-direction: column; gap: .7rem; }
+  .livre-prix { margin: 0; font-size: 1.5rem; font-weight: 600; }
+  .livre-prix small { font-family: var(--sans); font-size: .85rem; font-weight: 400; color: var(--texte-2); }
   .btn-ajout { width: 100%; }
   .btn-ajout.ajoute, .btn-ajout.ajoute:hover { background: var(--vert); border-color: var(--vert); }
-  .noscript { padding: 1.25rem; background: var(--abricot-pale); border-radius: var(--rayon); font-weight: 700; }
+  .noscript { padding: 1.25rem; border: 1px solid var(--accent); }
 
-  /* ===== Kirk Publishing ===== */
-  .kirk { background: var(--nuit); color: #F4EFE6; }
-  .kirk h2, .kirk h3 { color: #fff; }
-  .kirk .surtitre { color: var(--abricot); }
-  .kirk p { color: #ECE6DB; }
-  .kirk a { color: #fff; }
-  .kirk a:hover { color: var(--abricot); }
-  .kirk-grille { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
-  .carte-adresse { font-style: normal; line-height: 1.7; margin-top: 1.5rem; padding: 1.25rem 1.5rem; border-radius: var(--rayon); }
-  .kirk .carte-adresse { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.3); }
-  .carte-claire { background: var(--blanc); border: 1px solid var(--trait); border-left: 6px solid var(--nuit); }
-  .carte-titre { display: block; font-weight: 700; color: var(--nuit); margin-bottom: .25rem; }
+  /* L'auteur */
+  .auteur-grille { display: grid; grid-template-columns: 1.45fr .85fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .auteur-texte p { max-width: 38em; }
+  .citation { margin: 2.25rem 0 0; padding: 0; }
+  .citation p { font-size: 1.3rem; font-style: italic; line-height: 1.5; margin: 0 0 .5rem; max-width: 32em; }
+  .citation footer { font-family: var(--sans); font-size: .95rem; color: var(--texte-2); }
+  .reperes h3 { font-size: 1.3rem; padding-bottom: .6rem; margin-bottom: 0; border-bottom: 1px solid var(--texte); }
+  .reperes dl { margin: 0; }
+  .reperes dl div { padding: .9rem 0; border-bottom: 1px solid var(--filet); }
+  .reperes dt { font-size: 1.25rem; font-weight: 600; }
+  .reperes dd { margin: 0; color: var(--texte-2); }
+
+  /* Kirk Publishing */
+  .kirk-grille { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .adresse { font-style: normal; line-height: 1.7; margin-top: 1.5rem; }
+  .adresse h3 { font-size: 1.2rem; margin-bottom: .3rem; }
   .nouveaute {
-    display: grid; grid-template-columns: minmax(120px, 190px) 1fr; gap: 1.5rem; align-items: start;
-    padding: clamp(1.25rem, 3vw, 2rem); background: var(--blanc); color: var(--encre);
-    border-top: 8px solid var(--abricot); border-radius: var(--rayon); box-shadow: 0 24px 60px rgba(0,0,0,.3);
+    display: grid; grid-template-columns: minmax(140px, 200px) 1fr; gap: 1.25rem 1.75rem; align-items: start;
+    padding-top: 1.5rem; border-top: 1px solid var(--texte);
   }
-  .nouveaute :focus-visible { outline-color: var(--nuit); }
-  .nouveaute-couv { display: block; padding: 0; border: 0; background: none; }
-  .nouveaute-couv img { width: 100%; border-radius: 2px 5px 5px 2px; box-shadow: 0 10px 24px rgba(31,54,88,.3); }
-  .kirk .nouveaute h3 { color: var(--nuit); font-size: 1.5rem; margin-bottom: .2rem; }
-  .kirk .nouveaute p { color: var(--encre-2); }
-  .kirk .nouveaute .livre-auteur { color: var(--encre); }
-  .kirk .nouveaute .livre-sous, .kirk .nouveaute .livre-prix { color: var(--nuit); }
-  .kirk .nouveaute .livre-prix { margin-bottom: .9rem; }
+  .nouveaute-couv { display: block; padding: 0; border: 0; background: none; cursor: zoom-in; }
+  .nouveaute-couv img { width: 100%; }
+  .nouveaute h3 { font-size: 1.45rem; margin-bottom: .15rem; }
+  .nouveaute-achat {
+    grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: .75rem 1.25rem; padding-top: 1rem; border-top: 1px solid var(--filet);
+  }
+  .nouveaute-achat .livre-prix { margin: 0; }
+  .nouveaute-achat .btn-ajout { width: auto; flex: 1 1 15rem; }
 
-  /* ===== Formulaires ===== */
+  /* Formulaires */
   .contact-grille { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
-  .formulaire { padding: clamp(1.25rem, 3vw, 2.25rem); background: var(--blanc); border: 1px solid var(--trait); border-radius: var(--rayon); box-shadow: var(--ombre); }
   .champ { margin: 0 0 1.25rem; }
   fieldset.champ { border: 0; padding: 0; min-width: 0; }
-  .champ label, .legende { display: block; font-weight: 700; margin-bottom: .4rem; padding: 0; }
-  .oblig { font-weight: 400; color: var(--rouge); font-size: .9rem; }
-  .facult { font-weight: 400; color: var(--encre-2); font-size: .9rem; }
+  .champ label, .legende { display: block; margin-bottom: .4rem; padding: 0; font-family: var(--sans); font-weight: 600; font-size: 1rem; }
+  .oblig { font-weight: 400; font-size: .9rem; color: var(--accent); }
+  .facult { font-weight: 400; font-size: .9rem; color: var(--texte-2); }
   input[type="text"], input[type="email"], input[type="tel"], textarea {
-    width: 100%; min-height: 56px; padding: .75rem .9rem; font: inherit; font-size: 1.05rem; color: var(--encre);
-    background: #fff; border: 2px solid #8C8273; border-radius: 10px;
+    width: 100%; min-height: 54px; padding: .7rem .85rem;
+    font-family: var(--sans); font-size: 1.05rem; color: var(--texte);
+    background: #fff; border: 2px solid #767676; border-radius: 3px;
   }
-  textarea { min-height: 7.5rem; resize: vertical; }
-  input:focus, textarea:focus { outline: 3px solid var(--nuit); outline-offset: 2px; border-color: var(--nuit); }
-  .champ.erreur input, .champ.erreur textarea { border-color: var(--rouge); background: #FFF6F6; }
-  .msg-erreur { margin: .35rem 0 0; color: var(--rouge); font-weight: 700; font-size: .95rem; }
-  .choix { display: grid; gap: .6rem; }
+  textarea { min-height: 7.5rem; resize: vertical; line-height: 1.5; }
+  input:focus, textarea:focus { outline: 3px solid var(--texte); outline-offset: 2px; border-color: var(--texte); }
+  .champ.erreur input, .champ.erreur textarea { border-color: var(--accent); background: #FFF7F7; }
+  .champ.erreur .choix label { border-color: var(--accent); }
+  .msg-erreur { margin: .35rem 0 0; font-family: var(--sans); font-weight: 600; font-size: .95rem; color: var(--accent); }
+  .choix { display: grid; gap: .5rem; }
   .choix label {
-    display: flex; align-items: center; gap: .75rem; min-height: 56px; margin: 0; padding: .6rem .9rem;
-    background: #fff; border: 2px solid var(--trait); border-radius: 10px; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; gap: .75rem; min-height: 54px; margin: 0; padding: .55rem .9rem;
+    background: #fff; border: 1px solid #767676; border-radius: 3px; cursor: pointer;
   }
-  .choix input { width: 1.4rem; height: 1.4rem; margin: 0; accent-color: var(--nuit); }
-  .choix label:has(input:checked) { border-color: var(--nuit); background: #EEF2F8; }
-  .aide-champ { margin: .5rem 0 0; color: var(--encre-2); font-size: .95rem; }
-  .statut { margin: 1rem 0 0; font-weight: 700; }
+  .choix input { width: 1.35rem; height: 1.35rem; margin: 0; accent-color: var(--accent); }
+  .choix label:has(input:checked) { border: 2px solid var(--texte); background: var(--fond-2); }
+  .aide-champ { margin: .5rem 0 0; font-family: var(--sans); font-size: .95rem; color: var(--texte-2); }
+  .statut { margin: 1rem 0 0; font-family: var(--sans); font-weight: 600; }
   .statut:empty { display: none; }
   .statut.ok { color: var(--vert); }
-  .statut.ko { color: var(--rouge); }
-  .resume-erreurs { margin-bottom: 1.25rem; padding: 1rem 1.25rem; background: #FFF1F1; border: 2px solid var(--rouge); border-radius: 10px; }
+  .statut.ko { color: var(--accent); }
+  .resume-erreurs { margin-bottom: 1.25rem; padding: 1rem 1.25rem; font-family: var(--sans); background: #FFF7F7; border: 2px solid var(--accent); border-radius: 3px; }
   .resume-erreurs p { margin: 0 0 .4rem; }
   .resume-erreurs ul { margin: 0; padding-left: 1.2rem; }
-  .resume-erreurs a { color: var(--rouge); font-weight: 700; }
+  .resume-erreurs a { color: var(--accent); font-weight: 600; }
   .deux { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
 
-  /* ===== Pied de page ===== */
-  .pied { background: #14243D; color: #E9E3D8; padding-block: 3.5rem 2rem; }
-  .pied a { color: #fff; }
-  .pied a:hover { color: var(--abricot); }
+  /* Pied de page */
+  .pied { background: var(--fond-2); border-top: 1px solid var(--filet); padding-block: 3rem 2rem; font-family: var(--sans); font-size: .95rem; }
   .pied-grille { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2.5rem; }
-  .pied-nom { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.6rem; font-weight: 700; color: #fff; margin: 0; }
-  .pied-sous { color: var(--abricot); font-weight: 700; margin-bottom: .8rem; }
-  .pied-titre { font-family: 'Atkinson Hyperlegible', Verdana, sans-serif; font-size: 1.05rem; color: var(--abricot); margin-bottom: .75rem; }
-  .pied ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
-  .pied-bas {
-    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
-    margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.18); font-size: .95rem;
-  }
+  .pied-nom { margin: 0; font-family: var(--serif); font-size: 1.4rem; font-weight: 600; }
+  .pied-sous { color: var(--texte-2); margin-bottom: .8rem; }
+  .pied-titre { margin-bottom: .6rem; font-family: var(--sans); font-size: 1rem; font-weight: 700; }
+  .pied ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+  .pied-bas { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--filet); }
   .pied-bas p { margin: 0; }
-  .btn-haut { min-height: 48px; padding: .4rem 1rem; background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.65); border-radius: 10px; font-weight: 700; }
-  .btn-haut:hover { background: rgba(255,255,255,.1); }
+  .btn-haut { min-height: 48px; padding: .4rem 1rem; background: transparent; color: var(--texte); border: 1px solid var(--texte); border-radius: 3px; font-family: var(--sans); font-weight: 600; }
+  .btn-haut:hover { background: #fff; }
 
-  /* ===== Panier (fenêtre latérale) ===== */
+  /* Panier */
   .panier {
     position: fixed; inset: 0 0 0 auto; z-index: 300; margin: 0; padding: 0; border: 0;
     width: min(100%, 540px); max-width: 100%; height: 100vh; height: 100dvh; max-height: 100vh; max-height: 100dvh;
-    background: var(--papier); color: var(--encre); box-shadow: -10px 0 40px rgba(0,0,0,.25);
+    background: #fff; color: var(--texte); box-shadow: -8px 0 30px rgba(0,0,0,.18);
   }
-  .panier[open] { animation: glisse .3s ease-out; }
+  .panier[open] { animation: glisse .25s ease-out; }
   @keyframes glisse { from { transform: translateX(100%); } }
-  .panier::backdrop { background: rgba(20,24,32,.6); }
+  .panier::backdrop { background: rgba(0,0,0,.5); }
   .panier-boite { display: flex; flex-direction: column; height: 100%; }
-  .panier-entete {
-    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-    padding: 1rem 1.5rem; background: var(--blanc); border-bottom: 1px solid var(--trait);
-  }
-  .panier-entete h2 { margin: 0; font-size: 1.6rem; }
+  .panier-entete { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.5rem; border-bottom: 1px solid var(--filet); }
+  .panier-entete h2 { margin: 0; font-size: 1.5rem; }
   .panier-entete h2:focus { outline: none; }
-  .btn-fermer {
-    display: inline-flex; align-items: center; gap: .4rem; min-height: 48px; padding: .4rem 1rem;
-    background: #fff; color: var(--nuit); border: 2px solid var(--nuit); border-radius: 10px; font-weight: 700;
-  }
+  .btn-fermer { min-height: 48px; padding: .4rem 1rem; background: #fff; color: var(--texte); border: 2px solid var(--texte); border-radius: 3px; font-family: var(--sans); font-weight: 600; }
   .panier-corps { flex: 1; overflow-y: auto; padding: 1.25rem 1.5rem 2rem; }
   .lignes { list-style: none; margin: 0 0 1.25rem; padding: 0; }
-  .ligne { display: grid; grid-template-columns: 64px 1fr auto; gap: 1rem; align-items: start; padding: 1rem 0; border-bottom: 1px solid var(--trait); }
-  .ligne img { width: 64px; border-radius: 2px 4px 4px 2px; box-shadow: 0 4px 10px rgba(31,54,88,.25); }
-  .ligne-titre { margin: 0 0 .15rem; font-weight: 700; line-height: 1.3; }
-  .ligne-auteur { margin: 0 0 .6rem; color: var(--encre-2); font-size: .92rem; }
+  .ligne { display: grid; grid-template-columns: 64px 1fr auto; gap: 1rem; align-items: start; padding: 1rem 0; border-bottom: 1px solid var(--filet); }
+  .ligne img { width: 64px; }
+  .ligne-titre { margin: 0 0 .15rem; font-weight: 600; line-height: 1.3; }
+  .ligne-auteur { margin: 0 0 .6rem; font-family: var(--sans); font-size: .9rem; color: var(--texte-2); }
   .qte { display: flex; align-items: center; gap: .5rem; }
-  .qte button {
-    width: 48px; height: 48px; display: grid; place-items: center;
-    background: #fff; color: var(--nuit); border: 2px solid var(--nuit); border-radius: 10px; font-size: 1.4rem; font-weight: 700; line-height: 1;
-  }
-  .qte output { min-width: 2ch; text-align: center; font-weight: 700; font-size: 1.15rem; }
-  .suppr { margin-top: .3rem; min-height: 44px; padding: .4rem .2rem; background: none; border: 0; color: var(--rouge); font-weight: 700; text-decoration: underline; }
-  .ligne-prix { margin: 0; font-weight: 700; font-size: 1.1rem; white-space: nowrap; }
-  .totaux { margin-bottom: 1.25rem; padding: 1.1rem 1.25rem; background: var(--blanc); border: 1px solid var(--trait); border-radius: var(--rayon); }
-  .totaux div { display: flex; justify-content: space-between; gap: 1rem; padding: .3rem 0; }
-  .totaux .total { margin-top: .4rem; padding-top: .7rem; border-top: 2px solid var(--nuit); font-size: 1.3rem; font-weight: 700; color: var(--nuit); }
-  .totaux .tva { font-size: .92rem; color: var(--encre-2); }
-  .offert { color: var(--vert); font-weight: 700; }
+  .qte button { width: 48px; height: 48px; display: grid; place-items: center; background: #fff; color: var(--texte); border: 2px solid var(--texte); border-radius: 3px; font-family: var(--sans); font-size: 1.4rem; font-weight: 600; line-height: 1; }
+  .qte output { min-width: 2ch; text-align: center; font-family: var(--sans); font-weight: 600; font-size: 1.15rem; }
+  .suppr { margin-top: .3rem; min-height: 44px; padding: .4rem .1rem; background: none; border: 0; color: var(--accent); font-family: var(--sans); font-weight: 600; text-decoration: underline; }
+  .ligne-prix { margin: 0; font-weight: 600; font-size: 1.1rem; white-space: nowrap; }
+  .totaux { margin-bottom: 1.25rem; font-family: var(--sans); }
+  .totaux div { display: flex; justify-content: space-between; gap: 1rem; padding: .35rem 0; }
+  .totaux .total { margin-top: .4rem; padding-top: .7rem; border-top: 2px solid var(--texte); font-size: 1.3rem; font-weight: 700; }
+  .totaux .tva { font-size: .9rem; color: var(--texte-2); }
+  .offert { color: var(--vert); font-weight: 600; }
   .panier-actions { display: grid; gap: .75rem; }
-  .vide { text-align: center; padding: 2rem 0; }
+  .vide { padding: 1.5rem 0; }
   .vide p { font-size: 1.15rem; }
-  .etape-info { display: inline-block; margin-bottom: .6rem; padding: .2rem .75rem; border-radius: 999px; background: var(--abricot-pale); font-weight: 700; color: var(--nuit); }
-  .recap { font-weight: 700; margin-bottom: 1.25rem; }
-  .merci { text-align: center; padding: 2rem 0; }
-  .merci-ico { display: grid; place-items: center; width: 4.5rem; height: 4.5rem; margin: 0 auto 1rem; border-radius: 50%; background: var(--vert); color: #fff; }
-  .merci-titre { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.6rem; font-weight: 700; color: var(--nuit); }
+  .etape-info { margin-bottom: .4rem; font-family: var(--sans); font-weight: 600; color: var(--texte-2); }
+  .recap { font-weight: 600; margin-bottom: 1.25rem; }
+  .merci { padding: 1.5rem 0; }
+  .merci-titre { font-size: 1.5rem; font-weight: 600; color: var(--vert); }
 
-  /* ===== Couverture agrandie ===== */
+  /* Couverture agrandie */
   .zoom { margin: auto; padding: 0; border: 0; background: none; max-width: 94vw; max-height: 94vh; overflow: visible; text-align: center; }
-  .zoom::backdrop { background: rgba(10,12,16,.88); }
+  .zoom::backdrop { background: rgba(0,0,0,.85); }
   .zoom figure { margin: 0 0 1rem; }
-  .zoom img { max-height: 76vh; width: auto; margin: 0 auto; border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
-  .zoom figcaption { margin-top: .9rem; color: #fff; font-weight: 700; font-size: 1.1rem; }
+  .zoom img { max-height: 78vh; width: auto; margin: 0 auto; }
+  .zoom figcaption { margin-top: .9rem; color: #fff; font-size: 1.1rem; }
+  .zoom .btn-contour { border-color: #fff; }
 
-  /* ===== Message de confirmation ===== */
+  /* Message de confirmation */
   .toast {
     position: fixed; left: 50%; bottom: 1.25rem; z-index: 200;
     display: flex; align-items: center; gap: .9rem; width: max-content; max-width: calc(100% - 2rem);
-    padding: .8rem .9rem .8rem 1.25rem; border-radius: 12px; background: var(--nuit); color: #fff;
-    box-shadow: 0 12px 30px rgba(0,0,0,.3); font-weight: 700;
-    transform: translate(-50%, 160%); visibility: hidden; transition: transform .3s, visibility 0s .3s;
+    padding: .75rem .75rem .75rem 1.25rem; border-radius: 3px; background: var(--texte); color: #fff;
+    font-family: var(--sans); box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    transform: translate(-50%, 160%); visibility: hidden; transition: transform .25s, visibility 0s .25s;
   }
-  .toast.visible { transform: translate(-50%, 0); visibility: visible; transition: transform .3s, visibility 0s; }
-  .toast button { min-height: 44px; padding: .3rem .9rem; border: 0; border-radius: 8px; font-weight: 700; white-space: nowrap; }
-  .toast .toast-voir { background: var(--abricot); color: var(--encre); }
-  .toast .toast-x { background: transparent; color: #fff; font-size: 1.2rem; padding: .3rem .6rem; }
+  .toast.visible { transform: translate(-50%, 0); visibility: visible; transition: transform .25s, visibility 0s; }
+  .toast button { min-height: 44px; padding: .3rem .9rem; border: 0; border-radius: 3px; font-family: var(--sans); font-weight: 600; white-space: nowrap; }
+  .toast .toast-voir { background: #fff; color: var(--texte); }
+  .toast .toast-x { background: transparent; color: #fff; font-size: 1.15rem; padding: .3rem .6rem; }
 
-  /* ===== Adaptation aux écrans ===== */
+  /* Écrans plus étroits */
   @media (max-width: 1199px) {
     .menu { display: none; order: 3; flex-basis: 100%; }
     .menu.ouvert { display: block; }
-    .menu ul { flex-direction: column; gap: 0; border-top: 1px solid var(--trait); }
-    .menu a { padding: .85rem .5rem; font-size: 1.15rem; border-bottom: 1px solid var(--trait); border-radius: 0; }
+    .menu ul { flex-direction: column; gap: 0; border-top: 1px solid var(--filet); }
+    .menu a { padding: .85rem .25rem; font-size: 1.15rem; border-bottom: 1px solid var(--filet); }
     .btn-menu { display: inline-flex; }
   }
   @media (max-width: 900px) {
-    .accueil-grille, .auteur-grille, .kirk-grille, .contact-grille { grid-template-columns: 1fr; }
-    .vitrine { max-width: 440px; margin-inline: auto; }
-    .auteur-photo { max-width: 420px; }
-    .etapes { grid-template-columns: 1fr; }
-    .chiffres { grid-template-columns: 1fr 1fr; }
+    .intro-grille, .auteur-grille, .kirk-grille, .contact-grille { grid-template-columns: 1fr; }
+    .portrait { justify-self: start; max-width: 320px; }
     .pied-grille { grid-template-columns: 1fr; gap: 2rem; }
   }
   @media (max-width: 600px) {
-    .logo-nom { font-size: 1.25rem; }
+    .conteneur { width: min(100% - 2rem, 1180px); }
+    .logo-nom { font-size: 1.15rem; }
     .logo-sous { display: none; }
     .outils .taille { display: none; }
-    .menu.ouvert .taille-ligne { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem .5rem .5rem; font-weight: 700; }
-    .menu .taille { display: flex; }
-    .btn-panier, .btn-menu { flex-direction: column; gap: .05rem; min-width: 66px; min-height: 58px; padding: .3rem .5rem; font-size: .8rem; }
-    .btn-panier .badge { position: absolute; top: -8px; right: -8px; }
+    .menu.ouvert .taille-ligne { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem .25rem .5rem; font-family: var(--sans); font-weight: 600; }
+    .btn-panier, .btn-menu { flex-direction: column; gap: 0; min-width: 64px; min-height: 56px; padding: .3rem .5rem; font-size: .8rem; }
     .nouveaute { grid-template-columns: 1fr; }
     .nouveaute-couv { max-width: 220px; }
     .deux { grid-template-columns: 1fr; }
@@ -429,9 +326,6 @@
     .ligne img { width: 56px; }
     .ligne-prix { grid-column: 2; }
     .toast { flex-wrap: wrap; justify-content: center; text-align: center; }
-  }
-  @media (max-width: 420px) {
-    .chiffres { grid-template-columns: 1fr; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
@@ -442,19 +336,17 @@
 
 <a class="evitement" href="#contenu">Aller au contenu</a>
 
-<!-- ============ EN-TÊTE ============ -->
 <header class="entete" id="haut">
-  <div class="drapeau" aria-hidden="true"></div>
   <div class="conteneur entete-inner">
     <a class="logo" href="#haut">
       <span class="logo-nom">Ara Krikorian</span>
-      <span class="logo-sous">Auteur · Éditeur · Kirk Publishing</span>
+      <span class="logo-sous">Auteur et éditeur</span>
     </a>
 
     <nav class="menu" id="menu" aria-label="Menu principal">
       <ul>
-        <li><a href="#auteur">L'auteur</a></li>
         <li><a href="#livres">Les livres</a></li>
+        <li><a href="#auteur">L'auteur</a></li>
         <li><a href="#kirk">Kirk Publishing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -473,12 +365,11 @@
         <button type="button" data-taille="1" title="Agrandir le texte"><span aria-hidden="true">A+</span><span class="vh">Agrandir le texte</span></button>
       </div>
       <button type="button" class="btn-panier" id="btnPanier" data-ouvrir-panier aria-haspopup="dialog">
-        <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 2-1.5L22 8H6.2"/></svg>
-        <span>Panier</span>
-        <span class="badge" id="nbPanier">0</span><span class="vh"> livre(s)</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 2-1.5L22 8H6.2"/></svg>
+        <span>Panier (<span id="nbPanier">0</span>)</span>
       </button>
       <button type="button" class="btn-menu" id="btnMenu" aria-expanded="false" aria-controls="menu">
-        <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         <span class="lib">Menu</span>
       </button>
     </div>
@@ -487,145 +378,125 @@
 
 <main id="contenu">
 
-  <!-- ============ ACCUEIL ============ -->
-  <section class="accueil" aria-labelledby="titre-accueil">
-    <div class="conteneur accueil-grille">
+  <section class="intro" aria-labelledby="titre-intro">
+    <div class="conteneur intro-grille">
       <div>
-        <p class="surtitre">Auteur, historien et éditeur</p>
-        <h1 id="titre-accueil">Ara Krikorian</h1>
-        <p class="chapeau">Militant de la cause arménienne depuis plus de quarante ans, historien, éditeur et mémoire vivante d'un peuple. Découvrez ses livres et ceux de sa maison d'édition, Kirk&nbsp;Publishing.</p>
+        <h1 id="titre-intro">Ara Krikorian</h1>
+        <p class="intro-sous">Auteur, historien et éditeur</p>
+        <p class="lede">Militant de la cause arménienne depuis plus de quarante ans, historien, éditeur et mémoire vivante d'un peuple. Retrouvez ici ses livres et ceux de sa maison d'édition, Kirk Publishing.</p>
+        <p class="infos">Frais de port offerts. Paiement par chèque, virement ou PayPal.</p>
         <div class="boutons">
           <a class="btn btn-plein" href="#livres">Voir les livres</a>
-          <a class="btn btn-contour" href="#commander">Comment commander ?</a>
+          <a class="btn btn-contour" href="#commander">Comment commander</a>
         </div>
-        <ul class="atouts">
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Frais de port offerts</li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Paiement par chèque, virement ou PayPal</li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Commande simple, sans créer de compte</li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Dédicace possible sur demande</li>
-        </ul>
       </div>
-      <div class="vitrine" aria-hidden="true">
-        <img src="images/livre-5.jpg" width="600" height="900" alt="">
-        <img src="images/livre-1.jpg" width="600" height="900" alt="" fetchpriority="high">
-        <img src="images/livre-4.jpg" width="600" height="900" alt="">
-      </div>
+      <figure class="portrait">
+        <img src="images/ara-krikorian.jpg" width="480" height="624" alt="Portrait d'Ara Krikorian" fetchpriority="high">
+        <figcaption>Ara Krikorian</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- ============ L'AUTEUR ============ -->
-  <section class="section section-alt" id="auteur" aria-labelledby="titre-auteur">
-    <div class="conteneur">
-      <div class="auteur-grille">
-        <figure class="auteur-photo">
-          <img src="images/ara-krikorian.jpg" width="480" height="624" alt="Portrait d'Ara Krikorian" loading="lazy" decoding="async">
-          <figcaption>Ara Krikorian</figcaption>
-        </figure>
-        <div>
-          <p class="surtitre">L'auteur</p>
-          <h2 id="titre-auteur">Une voix de la mémoire arménienne</h2>
-          <div class="filet" aria-hidden="true"></div>
-          <p>Ara Krikorian est une figure centrale de la communauté arménienne de France. Entré très jeune dans le militantisme, il devient porte-parole puis <strong>président du Comité de Défense de la Cause Arménienne (CDCA)</strong> de 1974 à 2002, association dont il est l'un des piliers fondateurs.</p>
-          <p>Il est étroitement associé au processus historique de reconnaissance du génocide des Arméniens, d'abord par le Parlement européen en 1987, puis par la France en 2001. Quarante ans de combat, de plume et de mémoire au service d'un peuple et de sa vérité.</p>
-          <p>En marge de son engagement militant, Ara Krikorian est l'auteur d'ouvrages scientifiques, techniques et historiques. Il a fondé <strong>Kirk Publishing</strong>, maison d'édition spécialisée dans la thématique arménienne, installée à Maisons-Alfort.</p>
-          <blockquote class="citation">
-            <p>« La langue arménienne est très importante et même déterminante. Il ne faut pas qu'elle devienne une langue de musée, mais une langue vivante. »</p>
-            <footer>— Ara Krikorian</footer>
-          </blockquote>
-        </div>
-      </div>
-      <ul class="chiffres">
-        <li><span class="chiffre">+40 ans</span><span class="chiffre-lib">de militantisme</span></li>
-        <li><span class="chiffre">11+</span><span class="chiffre-lib">ouvrages publiés</span></li>
-        <li><span class="chiffre">1987</span><span class="chiffre-lib">reconnaissance du génocide par le Parlement européen</span></li>
-        <li><span class="chiffre">2001</span><span class="chiffre-lib">reconnaissance par la France</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============ LES LIVRES ============ -->
   <section class="section" id="livres" aria-labelledby="titre-livres">
     <div class="conteneur">
-      <p class="surtitre">La librairie</p>
       <h2 id="titre-livres">Les livres</h2>
-      <div class="filet" aria-hidden="true"></div>
-      <p class="intro">Chaque livre, une part de mémoire arménienne. Les prix sont indiqués TTC et les frais de port sont offerts.</p>
+      <p class="chapeau">Les prix sont indiqués TTC. Les frais de port sont offerts.</p>
 
       <div class="commander" id="commander">
-        <h3>Comment commander ?</h3>
+        <h3>Comment commander&nbsp;?</h3>
         <ol class="etapes">
-          <li class="etape"><span class="num" aria-hidden="true">1</span><div><p class="etape-titre">Choisissez vos livres</p><p>Sous chaque livre, cliquez sur le bouton bleu « Ajouter au panier ».</p></div></li>
-          <li class="etape"><span class="num" aria-hidden="true">2</span><div><p class="etape-titre">Ouvrez votre panier</p><p>Cliquez sur « Panier » en haut de l'écran, vérifiez votre choix puis cliquez sur « Commander ».</p></div></li>
-          <li class="etape"><span class="num" aria-hidden="true">3</span><div><p class="etape-titre">Indiquez vos coordonnées</p><p>Nous vous recontactons pour le règlement : chèque, virement ou PayPal.</p></div></li>
+          <li><strong>Choisissez vos livres.</strong> Sous chaque livre, cliquez sur le bouton « Ajouter au panier ».</li>
+          <li><strong>Ouvrez le panier.</strong> Cliquez sur « Panier » en haut de l'écran, vérifiez votre choix, puis cliquez sur « Commander ».</li>
+          <li><strong>Indiquez vos coordonnées.</strong> Remplissez le formulaire, puis cliquez sur « Envoyer ma commande ». Nous vous recontactons ensuite pour le règlement, par chèque, virement ou PayPal.</li>
         </ol>
-        <p class="aide">Une question, une difficulté ? <a href="#contact">Écrivez-nous</a>, nous vous aiderons volontiers.</p>
+        <p>Une question&nbsp;? <a href="#contact">Écrivez-nous</a>, nous vous aiderons volontiers.</p>
       </div>
 
       <h3 class="groupe-titre">Les livres d'Ara Krikorian</h3>
       <div class="grille-livres" id="grilleAra"></div>
 
-      <h3 class="groupe-titre">D'autres auteurs, d'autres mémoires</h3>
+      <h3 class="groupe-titre">Les autres titres</h3>
       <div class="grille-livres" id="grilleAutres"></div>
 
-      <noscript><p class="noscript">Pour voir les livres et commander, activez JavaScript dans votre navigateur, ou écrivez à Kirk Publishing, 37 rue Georges-Médéric, 94700 Maisons-Alfort.</p></noscript>
+      <noscript><p class="noscript">Pour voir les livres et commander, activez JavaScript dans votre navigateur, ou écrivez à Kirk Publishing, 37, rue Georges-Médéric, 94700 Maisons-Alfort.</p></noscript>
     </div>
   </section>
 
-  <!-- ============ KIRK PUBLISHING ============ -->
-  <section class="section kirk sur-fonce" id="kirk" aria-labelledby="titre-kirk">
+  <section class="section" id="auteur" aria-labelledby="titre-auteur">
+    <div class="conteneur auteur-grille">
+      <div class="auteur-texte">
+        <h2 id="titre-auteur">L'auteur</h2>
+        <p>Ara Krikorian est une figure centrale de la communauté arménienne de France. Entré très jeune dans le militantisme, il devient porte-parole puis président du Comité de Défense de la Cause Arménienne (CDCA) de 1974 à 2002, association dont il est l'un des piliers fondateurs.</p>
+        <p>Il est étroitement associé au processus historique de reconnaissance du génocide des Arméniens, d'abord par le Parlement européen en 1987, puis par la France en 2001. Quarante ans de combat, de plume et de mémoire au service d'un peuple et de sa vérité.</p>
+        <p>En marge de son engagement militant, Ara Krikorian est l'auteur d'ouvrages scientifiques, techniques et historiques. Il a fondé Kirk Publishing, maison d'édition spécialisée dans la thématique arménienne, installée à Maisons-Alfort.</p>
+        <blockquote class="citation">
+          <p>« La langue arménienne est très importante et même déterminante. Il ne faut pas qu'elle devienne une langue de musée, mais une langue vivante. »</p>
+          <footer>Ara Krikorian</footer>
+        </blockquote>
+      </div>
+      <aside class="reperes" aria-labelledby="titre-reperes">
+        <h3 id="titre-reperes">Repères</h3>
+        <dl>
+          <div><dt>1974-2002</dt><dd>Porte-parole puis président du Comité de Défense de la Cause Arménienne</dd></div>
+          <div><dt>1987</dt><dd>Reconnaissance du génocide des Arméniens par le Parlement européen</dd></div>
+          <div><dt>2001</dt><dd>Reconnaissance du génocide des Arméniens par la France</dd></div>
+          <div><dt>Plus de 10 livres</dt><dd>Histoire, dictionnaires, biographies et témoignages</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-grise" id="kirk" aria-labelledby="titre-kirk">
     <div class="conteneur kirk-grille">
       <div>
-        <p class="surtitre">La maison d'édition</p>
         <h2 id="titre-kirk">Kirk Publishing</h2>
-        <div class="filet" aria-hidden="true"></div>
-        <p>Fondée par Ara Krikorian, Kirk Publishing est une maison d'édition indépendante dont la vocation est de publier et diffuser des ouvrages à thématique arménienne : histoire, culture, biographies, témoignages.</p>
+        <p>Fondée par Ara Krikorian, Kirk Publishing est une maison d'édition indépendante dont la vocation est de publier et diffuser des ouvrages à thématique arménienne : histoire, culture, biographies, témoignages.</p>
         <p>Kirk Publishing réunit des voix arméniennes et des auteurs passionnés par ce patrimoine unique. La maison accompagne chaque ouvrage avec un soin éditorial exigeant, de la conception à la diffusion.</p>
         <p>En plus des livres d'Ara Krikorian, Kirk Publishing édite des ouvrages d'autres auteurs engagés dans la préservation et la transmission du patrimoine arménien.</p>
-        <address class="carte-adresse">
-          <strong>Kirk Publishing</strong><br>
+        <address class="adresse">
+          Kirk Publishing<br>
           37, rue Georges-Médéric<br>
-          94700 Maisons-Alfort, France<br>
+          94700 Maisons-Alfort<br>
           <a href="http://www.kirk-publishing.com" target="_blank" rel="noopener">www.kirk-publishing.com</a>
         </address>
       </div>
 
       <article class="nouveaute" aria-labelledby="titre-nouveaute">
-        <button type="button" class="nouveaute-couv" data-zoom="14" aria-label="Agrandir la couverture de « Le Silence des innocents »">
-          <img src="images/kirk-silence-des-innocents.jpg" width="550" height="821" alt="Couverture du livre « Le Silence des innocents »" loading="lazy" decoding="async">
+        <button type="button" class="nouveaute-couv" data-zoom="14" aria-label="Voir en grand la couverture de « Le Silence des innocents »">
+          <img src="images/kirk-silence-des-innocents.jpg" width="550" height="821" alt="Couverture du livre « Le Silence des innocents »" loading="lazy" decoding="async">
         </button>
         <div>
-          <span class="pastille">Nouveauté</span>
+          <p class="livre-nouveau">Nouveauté</p>
           <h3 id="titre-nouveaute">Le Silence des innocents</h3>
           <p class="livre-sous">Du génocide à l'exil</p>
           <p class="livre-auteur">Maurice Dolmadjian</p>
           <p>Le récit de Véhanouche, rescapée du génocide, de son enfance jusqu'à son exil en France, recueilli par son petit-fils.</p>
+        </div>
+        <div class="nouveaute-achat">
           <p class="livre-prix">25,00&nbsp;€ <small>TTC</small></p>
-          <button type="button" class="btn btn-plein btn-ajout" data-ajout="14"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 2-1.5L22 8H6.2"/></svg> Ajouter au panier</button>
+          <button type="button" class="btn btn-plein btn-ajout" data-ajout="14">Ajouter au panier</button>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- ============ CONTACT ============ -->
-  <section class="section section-alt" id="contact" aria-labelledby="titre-contact">
+  <section class="section" id="contact" aria-labelledby="titre-contact">
     <div class="conteneur contact-grille">
       <div>
-        <p class="surtitre">Contact</p>
-        <h2 id="titre-contact">Écrivez-nous</h2>
-        <div class="filet" aria-hidden="true"></div>
-        <p class="intro">Une question sur un livre, une commande ou une dédicace ? Remplissez ce formulaire : nous vous répondrons dans les meilleurs délais.</p>
-        <address class="carte-adresse carte-claire">
-          <span class="carte-titre">Adresse postale</span>
-          Kirk Publishing — Ara Krikorian<br>
+        <h2 id="titre-contact">Contact</h2>
+        <p class="chapeau">Une question sur un livre, une commande ou une dédicace&nbsp;? Écrivez-nous avec ce formulaire, nous vous répondrons dans les meilleurs délais.</p>
+        <address class="adresse">
+          <h3>Adresse postale</h3>
+          Kirk Publishing<br>
           37, rue Georges-Médéric<br>
-          94700 Maisons-Alfort, France
+          94700 Maisons-Alfort
         </address>
-        <!-- TÉLÉPHONE / E-MAIL : à ajouter ici dès qu'ils seront fournis, par exemple :
-        <p class="carte-adresse carte-claire"><span class="carte-titre">Par téléphone</span><a href="tel:+33100000000">01 00 00 00 00</a></p>
+        <!-- TÉLÉPHONE / E-MAIL : à ajouter ici dès qu'ils seront fournis, par exemple :
+        <p class="adresse"><strong>Téléphone :</strong> <a href="tel:+33100000000">01 00 00 00 00</a></p>
         -->
       </div>
 
-      <form class="formulaire" id="formContact" novalidate>
+      <form id="formContact" novalidate>
         <div class="champ">
           <label for="cNom">Votre nom <span class="oblig">(obligatoire)</span></label>
           <input type="text" id="cNom" name="nom" autocomplete="name" required>
@@ -649,43 +520,41 @@
   </section>
 </main>
 
-<!-- ============ PIED DE PAGE ============ -->
-<footer class="pied sur-fonce">
+<footer class="pied">
   <div class="conteneur">
     <div class="pied-grille">
       <div>
         <p class="pied-nom">Ara Krikorian</p>
-        <p class="pied-sous">Auteur · Éditeur · Kirk Publishing</p>
-        <p>Des livres d'histoire, de mémoire et de culture arméniennes.</p>
+        <p class="pied-sous">Auteur et éditeur</p>
+        <p>Livres d'histoire, de mémoire et de culture arméniennes.</p>
       </div>
       <nav aria-label="Liens du pied de page">
         <h2 class="pied-titre">Navigation</h2>
         <ul>
-          <li><a href="#auteur">L'auteur</a></li>
           <li><a href="#livres">Les livres</a></li>
           <li><a href="#commander">Comment commander</a></li>
+          <li><a href="#auteur">L'auteur</a></li>
           <li><a href="#kirk">Kirk Publishing</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
       <div>
         <h2 class="pied-titre">Kirk Publishing</h2>
-        <p>37, rue Georges-Médéric<br>94700 Maisons-Alfort, France<br><a href="http://www.kirk-publishing.com" target="_blank" rel="noopener">www.kirk-publishing.com</a></p>
+        <p>37, rue Georges-Médéric<br>94700 Maisons-Alfort<br><a href="http://www.kirk-publishing.com" target="_blank" rel="noopener">www.kirk-publishing.com</a></p>
       </div>
     </div>
     <div class="pied-bas">
-      <p>© <span id="annee">2026</span> Ara Krikorian — Kirk Publishing. Tous droits réservés.</p>
-      <button type="button" class="btn-haut" id="btnHaut">↑ Haut de page</button>
+      <p>© <span id="annee">2026</span> Ara Krikorian, Kirk Publishing. Tous droits réservés.</p>
+      <button type="button" class="btn-haut" id="btnHaut">Revenir en haut</button>
     </div>
   </div>
 </footer>
 
-<!-- ============ PANIER ============ -->
 <dialog class="panier" id="panier" aria-labelledby="panierTitre">
   <div class="panier-boite">
     <div class="panier-entete">
       <h2 id="panierTitre" tabindex="-1">Votre panier</h2>
-      <button type="button" class="btn-fermer" data-fermer>✕ Fermer</button>
+      <button type="button" class="btn-fermer" data-fermer>Fermer</button>
     </div>
     <div class="panier-corps">
 
@@ -699,14 +568,14 @@
             <div class="tva"><span>dont TVA (5,5 %)</span><span id="totTVA">0,00 €</span></div>
           </div>
           <div class="panier-actions">
-            <button type="button" class="btn btn-plein" id="btnCommander">Commander →</button>
-            <button type="button" class="btn btn-contour" data-fermer>← Continuer mes achats</button>
+            <button type="button" class="btn btn-plein" id="btnCommander">Commander</button>
+            <button type="button" class="btn btn-contour" data-fermer>Continuer mes achats</button>
           </div>
         </div>
       </div>
 
       <div id="vueCommande" hidden>
-        <p class="etape-info">Étape 2 sur 2</p>
+        <p class="etape-info">Dernière étape</p>
         <p class="recap" id="recap"></p>
         <div class="resume-erreurs" id="erreursCommande" role="alert" tabindex="-1" hidden></div>
         <form id="formCommande" novalidate>
@@ -735,26 +604,25 @@
           <fieldset class="champ">
             <legend class="legende">Mode de paiement</legend>
             <div class="choix">
-              <label><input type="radio" name="paiement" value="Virement bancaire" checked> Virement bancaire</label>
-              <label><input type="radio" name="paiement" value="Chèque"> Chèque</label>
+              <label><input type="radio" name="paiement" id="oPaiement1" value="Chèque"> Chèque</label>
+              <label><input type="radio" name="paiement" value="Virement bancaire"> Virement bancaire</label>
               <label><input type="radio" name="paiement" value="PayPal"> PayPal</label>
             </div>
             <p class="aide-champ">Nous vous recontacterons pour le règlement.</p>
           </fieldset>
           <div class="champ">
             <label for="oMessage">Message <span class="facult">(facultatif)</span></label>
-            <textarea id="oMessage" rows="3" placeholder="Par exemple : une demande de dédicace, une question…"></textarea>
+            <textarea id="oMessage" rows="3" placeholder="Par exemple : une demande de dédicace, une question…"></textarea>
           </div>
           <div class="panier-actions">
             <button type="submit" class="btn btn-plein" id="btnEnvoyer">Envoyer ma commande</button>
-            <button type="button" class="btn btn-contour" id="btnRetour">← Retour au panier</button>
+            <button type="button" class="btn btn-contour" id="btnRetour">Retour au panier</button>
           </div>
         </form>
       </div>
 
       <div id="vueMerci" class="merci" hidden>
-        <div class="merci-ico"><svg aria-hidden="true" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <p class="merci-titre">Merci, votre commande est bien envoyée !</p>
+        <p class="merci-titre">Merci, votre commande a bien été envoyée.</p>
         <p>Nous vous contacterons très rapidement pour le règlement et la livraison.</p>
         <button type="button" class="btn btn-plein" data-fermer>Fermer</button>
       </div>
@@ -763,16 +631,14 @@
   </div>
 </dialog>
 
-<!-- ============ COUVERTURE AGRANDIE ============ -->
 <dialog class="zoom" id="zoom" aria-label="Couverture agrandie">
   <figure>
     <img id="zoomImg" alt="">
     <figcaption id="zoomLegende"></figcaption>
   </figure>
-  <button type="button" class="btn btn-abricot" data-fermer-zoom>✕ Fermer</button>
+  <button type="button" class="btn btn-contour" data-fermer-zoom>Fermer</button>
 </dialog>
 
-<!-- ============ MESSAGE DE CONFIRMATION ============ -->
 <div class="toast" id="toast">
   <span id="toastMsg" role="status" aria-live="polite"></span>
   <button type="button" class="toast-voir" data-ouvrir-panier>Voir le panier</button>
@@ -786,41 +652,40 @@
   /* Adresse de réception des commandes et des messages (service FormSubmit) */
   var ENVOI = 'https://formsubmit.co/ajax/papazianchahe8@gmail.com';
 
-  /* ===== Catalogue =====
-     Pour ajouter un livre : copier un bloc, changer l'id (unique), l'image et les textes.
-     group : 'ara' (livres d'Ara Krikorian) ou 'autres'. */
+  /* Catalogue. Pour ajouter un livre : copier un bloc, changer l'id (unique), l'image et les textes.
+     w et h = largeur et hauteur de l'image en pixels. group : 'ara' ou 'autres'. */
   var LIVRES = [
     { id: 1, group: 'ara', img: 'images/livre-1.jpg', w: 600, h: 900,
-      title: "Journal d'un militant", subtitle: "Volume I (1971–1991)", author: "Ara Krikorian", coauthor: null,
-      preface: "Préface : Yves Ternon", year: 2018, publisher: "Kirk Publishing", pages: 386, price: 25,
-      description: "Le journal d'un militant arménien tenu entre 1971 et 1991 : naissance du terrorisme arménien, reconnaissance internationale du génocide, disparition progressive des communautés arméniennes de France." },
+      title: "Journal d'un militant", subtitle: "Volume I (1971-1991)", author: "Ara Krikorian", coauthor: null,
+      preface: "Préface : Yves Ternon", year: 2018, publisher: "Kirk Publishing", pages: 386, price: 25,
+      description: "Le journal d'un militant arménien tenu entre 1971 et 1991 : naissance du terrorisme arménien, reconnaissance internationale du génocide, disparition progressive des communautés arméniennes de France." },
     { id: 4, group: 'ara', img: 'images/livre-4.jpg', w: 600, h: 900,
       title: "Le Dictionnaire biographique", subtitle: "Arméniens d'hier et d'aujourd'hui", author: "Ara Krikorian", coauthor: "Hraïr Heratchian",
-      preface: "Préface : Vincent Duclert", year: 2021, publisher: "Kirk Publishing", pages: 680, price: 39,
-      description: "Plus de 700 pages de portraits : figures de la résistance, du combat politique, de la réussite économique et de l'intégration au sein de la diaspora arménienne. Un outil essentiel." },
+      preface: "Préface : Vincent Duclert", year: 2021, publisher: "Kirk Publishing", pages: 680, price: 39,
+      description: "Près de 700 pages de portraits : figures de la résistance, du combat politique, de la réussite économique et de l'intégration au sein de la diaspora arménienne. Un outil essentiel." },
     { id: 3, group: 'ara', img: 'images/livre-3.jpg', w: 600, h: 900,
       title: "Arménophiles", subtitle: "Dictionnaire monographique", author: "Ara Krikorian", coauthor: "Hraïr Heratchian",
-      preface: "Préface : Jean-Pierre Mahé", year: 2019, publisher: "Kirk Publishing", pages: null, price: 30,
+      preface: "Préface : Jean-Pierre Mahé", year: 2019, publisher: "Kirk Publishing", pages: null, price: 30,
       description: "600 notices biographiques et 300 notices bibliographiques sur des personnalités ayant eu des liens avec le peuple arménien. Un outil essentiel de la vie arménienne." },
     { id: 5, group: 'ara', img: 'images/livre-5.jpg', w: 600, h: 900,
       title: "Arménie éternelle", subtitle: "Grandes figures", author: "Ara Krikorian", coauthor: "Hraïr Heratchian",
-      preface: "Préface : Mikaël Nichanian", year: 2016, publisher: "Kirk Publishing", pages: 283, price: 29,
+      preface: "Préface : Mikaël Nichanian", year: 2016, publisher: "Kirk Publishing", pages: 283, price: 29,
       description: "Plus de 250 personnalités arméniennes présentées par ordre alphabétique, dans les domaines de la littérature, de la peinture, de l'architecture, de la musique et du cinéma. Un hommage à la culture arménienne bimillénaire." },
     { id: 2, group: 'ara', img: 'images/livre-2.jpg', w: 600, h: 900,
       title: "Dictionnaire de la Cause arménienne", subtitle: null, author: "Ara Krikorian", coauthor: null,
       preface: null, year: 2002, publisher: "Édipol", pages: 270, price: 22,
       description: "Un millier d'entrées (personnes, faits, lieux, institutions, dates) sur la cause arménienne du XIXe siècle à nos jours, avec une chronologie détaillée et une bibliographie inédite." },
     { id: 6, group: 'ara', img: 'images/livre-6.jpg', w: 600, h: 900,
-      title: "Christapor Mikaëlian et le sultan turc", subtitle: "Le Grand Défi — Volume 1", author: "Ara Krikorian", coauthor: null,
+      title: "Christapor Mikaëlian et le sultan turc", subtitle: "Le Grand Défi, volume 1", author: "Ara Krikorian", coauthor: null,
       preface: null, year: 2015, publisher: "Édipol", pages: null, price: 24,
-      description: "Biographie du fondateur de la Fédération révolutionnaire arménienne (Dachnaktsoutioun) : ses confrontations avec le pouvoir ottoman et son rôle au sommet de la révolution arménienne." },
+      description: "Biographie du fondateur de la Fédération révolutionnaire arménienne (Dachnaktsoutioun) : ses confrontations avec le pouvoir ottoman et son rôle au sommet de la révolution arménienne." },
     { id: 8, group: 'ara', img: 'images/livre-8.jpg', w: 600, h: 900,
-      title: "Christapor Mikaëlian et son temps", subtitle: "Repères — Volume 2", author: "Ara Krikorian", coauthor: null,
+      title: "Christapor Mikaëlian et son temps", subtitle: "Repères, volume 2", author: "Ara Krikorian", coauthor: null,
       preface: null, year: 2015, publisher: "Édipol", pages: null, price: 16,
       description: "Chronologie générale des événements, cinq cents biographies illustrées, noms des lieux géographiques, organisations, titres de journaux, glossaire et sources bibliographiques." },
-    { id: 7, group: 'ara', img: 'images/livre-7.jpg', w: 600, h: 900,
+    { id: 7, group: 'ara', img: 'images/livre-7.jpg', w: 783, h: 1200,
       title: "Justicier du génocide arménien", subtitle: "Le Procès de Tehlirian", author: "Ara Krikorian", coauthor: null,
-      preface: null, year: 1982, publisher: "Édipol", pages: null, price: 18,
+      preface: null, year: 1981, publisher: "Éditions Diasporas", pages: 292, price: 18,
       description: "Le récit du procès de Soghomon Tehlirian, qui assassina en 1921 Talaat Pacha, principal responsable du génocide des Arméniens. Un acte de mémoire fondateur." },
 
     { id: 14, group: 'autres', isNew: true, img: 'images/kirk-silence-des-innocents.jpg', w: 550, h: 821,
@@ -829,16 +694,16 @@
       description: "Face au silence de ses grands-parents, Maurice Dolmadjian recueille le récit de sa grand-mère Véhanouche, rescapée du génocide, de son enfance jusqu'à son exil en France. Une mémoire familiale marquée par les atrocités du génocide." },
     { id: 15, group: 'autres', img: 'images/kirk-armeniens-en-terre-de-france.jpg', w: 700, h: 519,
       title: "Les Arméniens en terre de France", subtitle: null, author: "Hrant Norsen", coauthor: null,
-      preface: "Préfaces : Hasmik Tolmajian et David Lisnard", year: null, publisher: "Kirk Publishing", pages: 446, price: 30,
-      description: "Un inventaire illustré par plus de 1 000 photographies : monuments, lieux de culte, rues et places, personnalités, écoles et centres culturels qui témoignent de la présence arménienne dans plus de 280 communes françaises." },
+      preface: "Préfaces : Hasmik Tolmajian et David Lisnard", year: null, publisher: "Kirk Publishing", pages: null, price: 30,
+      description: "Un inventaire illustré par plus de 1 000 photographies : monuments, lieux de culte, rues et places, personnalités, écoles et centres culturels qui témoignent de la présence arménienne dans plus de 280 communes françaises." },
     { id: 16, group: 'autres', img: 'images/kirk-les-justes.jpg', w: 550, h: 818,
-      title: "Les « Justes » face au génocide des Arméniens", subtitle: null, author: "Hilda Kalfayan-Panossian", coauthor: null,
-      preface: "Préface : Vincent Duclert", year: null, publisher: "Kirk Publishing", pages: null, price: 30,
-      description: "Danois, Suédois, Norvégiens, Américains, Français et Turcs : le portrait de ceux qui, au péril de leur vie, ont aidé, caché, soigné et sauvé des Arméniens pendant le génocide de 1915." },
+      title: "Les “Justes” face au génocide des Arméniens", subtitle: null, author: "Hilda Kalfayan-Panossian", coauthor: null,
+      preface: "Préface : Vincent Duclert", year: null, publisher: "Kirk Publishing", pages: null, price: 30,
+      description: "Danois, Suédois, Norvégiens, Américains, Français et Turcs : le portrait de ceux qui, au péril de leur vie, ont aidé, caché, soigné et sauvé des Arméniens pendant le génocide de 1915." },
     { id: 17, group: 'autres', img: 'images/kirk-souvenirs-enfant-deporte.jpg', w: 375, h: 550,
       title: "Souvenirs d'un enfant déporté", subtitle: "De Papert à Marseille", author: "Haïrabed Barsamian", coauthor: null,
-      preface: "Préface : Raymond H. Kévorkian", year: null, publisher: "Kirk Publishing", pages: null, price: 15,
-      description: "Le récit autobiographique d'un enfant déporté en 1915 : la vie paisible de sa famille, puis les déportations, de Papert jusqu'à Marseille. Traduit de l'arménien et annoté par Araksi Barsamian-Adjémian." },
+      preface: "Préface : Raymond H. Kévorkian", year: null, publisher: "Kirk Publishing", pages: null, price: 15,
+      description: "Le récit autobiographique d'un enfant déporté en 1915 : la vie paisible de sa famille, puis les déportations, de Papert jusqu'à Marseille. Traduit de l'arménien et annoté par Araksi Barsamian-Adjémian." },
     { id: 12, group: 'autres', img: 'images/livre-12.jpg', w: 600, h: 900,
       title: "Meurs et deviens", subtitle: "Du génocide à l'exil", author: "Maurice Dolmadjian", coauthor: null,
       preface: null, year: 2021, publisher: "Kirk Publishing", pages: null, price: 24,
@@ -846,54 +711,50 @@
     { id: 9, group: 'autres', img: 'images/livre-9.jpg', w: 600, h: 900,
       title: "Le Clan des IAN", subtitle: "Album de caricatures", author: "HOVIV", coauthor: null,
       preface: null, year: 2010, publisher: "Édipol", pages: 88, price: 15,
-      description: "150 dessins décapants et irrésistiblement drôles : HOVIV tourne en dérision les Arméniens de la diaspora et leur nationalisme à fleur de peau, avec talent et une profonde tendresse pour ses origines. Un livre plein d'humour." },
+      description: "150 dessins décapants et irrésistiblement drôles : HOVIV tourne en dérision les Arméniens de la diaspora et leur nationalisme à fleur de peau, avec talent et une profonde tendresse pour ses origines. Un livre plein d'humour." },
     { id: 10, group: 'autres', img: 'images/livre-10.jpg', w: 600, h: 900,
-      title: "Trois contes arméniens", subtitle: "Édition bilingue illustrée (français–arménien)", author: "Hovhannès Toumanian", coauthor: null,
-      preface: "Traduction : Jean Guréghian et Denis Donikian", year: 2006, publisher: "Édipol", pages: null, price: 13,
-      description: "Trois contes du grand poète Toumanian — Le chien et le chat, L'imbécile, La goutte de miel — réunis dans un livre bilingue français–arménien, illustré par des enfants du Centre national des beaux-arts d'Erevan." },
-    { id: 13, group: 'autres', img: 'images/livre-13.jpg', w: 225, h: 225,
-      title: "Contes arméniens", subtitle: null, author: "Chaké Der-Melkonian", coauthor: null,
-      preface: "Préface : Henri Verneuil", year: 2010, publisher: "Édipol", pages: null, price: 12,
-      description: "Un recueil de contes arméniens rassemblés et adaptés par Chaké Der-Melkonian, qui restitue avec sensibilité et fidélité la richesse du folklore et de l'imaginaire du peuple arménien." }
+      title: "Trois contes arméniens", subtitle: "Édition bilingue illustrée (français-arménien)", author: "Hovhannès Toumanian", coauthor: null,
+      preface: "Traduction : Jean Guréghian et Denis Donikian", year: 2006, publisher: "Édipol", pages: null, price: 13,
+      description: "Trois contes du grand poète Toumanian (Le chien et le chat, L'imbécile, La goutte de miel), réunis dans un livre bilingue français-arménien et illustrés par des enfants du Centre national des beaux-arts d'Erevan." },
+    { id: 13, group: 'autres', img: 'images/livre-13.jpg', w: 845, h: 1200,
+      title: "Contes arméniens", subtitle: null, author: "Chaké Der Melkonian-Minassian", coauthor: null,
+      preface: "Préface : Henri Verneuil. Illustrations : Elo Boudakian", year: 2004, publisher: "Édipol", pages: 141, price: 12,
+      description: "Un recueil de contes arméniens rassemblés et adaptés par Chaké Der Melkonian-Minassian, qui restitue avec sensibilité et fidélité la richesse du folklore et de l'imaginaire du peuple arménien." }
   ];
 
-  var ICO_PANIER = '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 2-1.5L22 8H6.2"/></svg>';
-  var ICO_OK = '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
-  var ICO_LOUPE = '<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6M11 8v6M8 11h6"/></svg>';
-
-  /* ===== Outils ===== */
+  /* Outils */
   function $(s) { return document.querySelector(s); }
   function $$(s) { return Array.prototype.slice.call(document.querySelectorAll(s)); }
   function esc(s) {
-    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
   function fmt(n) { return n.toFixed(2).replace('.', ',') + ' €'; }
   function livre(id) { for (var i = 0; i < LIVRES.length; i++) if (LIVRES[i].id === id) return LIVRES[i]; return null; }
-  function auteurs(b) { return b.coauthor ? b.author + ' et ' + b.coauthor : b.author; }
-  function nbLivres(n) { return n + ' livre' + (n > 1 ? 's' : ''); }
+  function auteurs(b) { return b.coauthor ? b.author + ' et ' + b.coauthor : b.author; }
+  function nbLivres(n) { return n + ' livre' + (n > 1 ? 's' : ''); }
   function ouvrirDialogue(d) { if (typeof d.showModal === 'function') { if (!d.open) d.showModal(); } else d.setAttribute('open', ''); }
   function fermerDialogue(d) { if (typeof d.close === 'function') { if (d.open) d.close(); } else { d.removeAttribute('open'); d.dispatchEvent(new Event('close')); } }
 
-  /* ===== Affichage des livres ===== */
+  /* Affichage des livres */
   function carte(b) {
-    var meta = [b.publisher, b.year, b.pages ? b.pages + ' pages' : null, b.preface].filter(Boolean).join(' · ');
+    var meta = [b.publisher, b.year, b.pages ? b.pages + ' pages' : null].filter(Boolean).join(', ');
+    var forme = b.h >= b.w ? 'haut' : 'large';
     return '<article class="livre">' +
-      '<button type="button" class="livre-couv" data-zoom="' + b.id + '" aria-label="Agrandir la couverture de « ' + esc(b.title) + ' »">' +
-        '<img src="' + b.img + '" width="' + b.w + '" height="' + b.h + '" alt="Couverture du livre « ' + esc(b.title) + ' »" loading="lazy" decoding="async">' +
-        '<span class="loupe" aria-hidden="true">' + ICO_LOUPE + ' Agrandir</span>' +
+      '<button type="button" class="livre-couv" data-zoom="' + b.id + '" aria-label="Voir en grand la couverture de « ' + esc(b.title) + ' »">' +
+        '<img class="' + forme + '" src="' + b.img + '" width="' + b.w + '" height="' + b.h + '" alt="Couverture du livre « ' + esc(b.title) + ' »" loading="lazy" decoding="async">' +
       '</button>' +
       '<div class="livre-corps">' +
-        (b.isNew ? '<span class="pastille">Nouveauté</span>' : '') +
+        (b.isNew ? '<p class="livre-nouveau">Nouveauté</p>' : '') +
         '<h4 class="livre-titre">' + esc(b.title) + '</h4>' +
-        (b.subtitle ? '<p class="livre-sous">' + esc(b.subtitle) + '</p>' : '') +
+        (b.subtitle ? '<p class="livre-sous">' + esc(b.subtitle) + '</p>' : '') +
         '<p class="livre-auteur">' + esc(auteurs(b)) + '</p>' +
-        '<p class="livre-meta">' + esc(meta) + '</p>' +
+        '<p class="livre-meta">' + esc(meta) + (b.preface ? '<br>' + esc(b.preface) : '') + '</p>' +
         '<p class="livre-desc">' + esc(b.description) + '</p>' +
         '<div class="livre-achat">' +
           '<p class="livre-prix">' + fmt(b.price) + ' <small>TTC</small></p>' +
-          '<button type="button" class="btn btn-plein btn-ajout" data-ajout="' + b.id + '">' + ICO_PANIER + ' Ajouter au panier</button>' +
+          '<button type="button" class="btn btn-plein btn-ajout" data-ajout="' + b.id + '">Ajouter au panier</button>' +
         '</div>' +
       '</div>' +
     '</article>';
@@ -901,7 +762,7 @@
   $('#grilleAra').innerHTML = LIVRES.filter(function (b) { return b.group === 'ara'; }).map(carte).join('');
   $('#grilleAutres').innerHTML = LIVRES.filter(function (b) { return b.group === 'autres'; }).map(carte).join('');
 
-  /* ===== Panier (gardé en mémoire si la page est rechargée) ===== */
+  /* Panier, gardé en mémoire si la page est rechargée */
   var panier = [];
   try {
     var memo = JSON.parse(localStorage.getItem('ara-panier') || '[]');
@@ -922,7 +783,7 @@
     $('#nbPanier').textContent = t.nb;
     var liste = $('#panierListe');
     if (!t.nb) {
-      liste.innerHTML = '<div class="vide"><p>Votre panier est vide.</p><p>Pour ajouter un livre, cliquez sur « Ajouter au panier » sous sa couverture.</p>' +
+      liste.innerHTML = '<div class="vide"><p>Votre panier est vide.</p><p>Pour ajouter un livre, cliquez sur « Ajouter au panier » sous sa couverture.</p>' +
         '<a class="btn btn-plein" href="#livres" data-fermer>Voir les livres</a></div>';
       $('#panierPied').hidden = true;
       return;
@@ -934,8 +795,8 @@
         '<img src="' + b.img + '" alt="" width="64" height="' + Math.round(64 * b.h / b.w) + '">' +
         '<div>' +
           '<p class="ligne-titre">' + esc(b.title) + '</p>' +
-          '<p class="ligne-auteur">' + esc(auteurs(b)) + ' · ' + fmt(b.price) + ' l\'unité</p>' +
-          '<div class="qte" role="group" aria-label="Quantité pour « ' + esc(b.title) + ' »">' +
+          '<p class="ligne-auteur">' + esc(auteurs(b)) + ', ' + fmt(b.price) + ' l\'unité</p>' +
+          '<div class="qte" role="group" aria-label="Quantité pour « ' + esc(b.title) + ' »">' +
             '<button type="button" data-qte="-1" data-id="' + b.id + '" aria-label="Retirer un exemplaire">−</button>' +
             '<output aria-live="polite">' + l.qty + '</output>' +
             '<button type="button" data-qte="1" data-id="' + b.id + '" aria-label="Ajouter un exemplaire">+</button>' +
@@ -949,7 +810,7 @@
     $('#totLivres').textContent = fmt(t.ttc);
     $('#totTTC').textContent = fmt(t.ttc);
     $('#totTVA').textContent = fmt(t.tva);
-    $('#recap').textContent = 'Votre commande : ' + nbLivres(t.nb) + ' — ' + fmt(t.ttc) + ' (frais de port offerts)';
+    $('#recap').textContent = 'Votre commande : ' + nbLivres(t.nb) + ', ' + fmt(t.ttc) + ' (frais de port offerts)';
   }
 
   var minuteurToast;
@@ -969,16 +830,14 @@
     sauver(); majPanier();
     if (bouton) {
       bouton.classList.add('ajoute');
-      bouton.innerHTML = ICO_OK + ' Ajouté au panier';
+      bouton.textContent = 'Ajouté au panier';
       clearTimeout(bouton._minuteur);
       bouton._minuteur = setTimeout(function () {
         bouton.classList.remove('ajoute');
-        bouton.innerHTML = ICO_PANIER + ' Ajouter au panier';
+        bouton.textContent = 'Ajouter au panier';
       }, 2500);
     }
-    var bp = $('#btnPanier');
-    bp.classList.remove('pulse'); void bp.offsetWidth; bp.classList.add('pulse');
-    toast('« ' + b.title + ' » est dans votre panier.');
+    toast('« ' + b.title + ' » est dans votre panier.');
   }
   function changerQte(id, delta) {
     var l = ligne(id); if (!l) return;
@@ -991,15 +850,15 @@
     sauver(); majPanier();
   }
 
-  /* ===== Fenêtre du panier ===== */
+  /* Fenêtre du panier */
   var dlg = $('#panier'), dernierFocus = null;
   function vue(nom) {
     ['vuePanier', 'vueCommande', 'vueMerci'].forEach(function (v) { $('#' + v).hidden = (v !== nom); });
-    $('#panierTitre').textContent = nom === 'vueCommande' ? 'Vos coordonnées' : (nom === 'vueMerci' ? 'Merci !' : 'Votre panier');
+    $('#panierTitre').textContent = nom === 'vueCommande' ? 'Vos coordonnées' : (nom === 'vueMerci' ? 'Merci' : 'Votre panier');
     $('.panier-corps').scrollTop = 0;
   }
   function ouvrirPanier(declencheur) {
-    dernierFocus = (declencheur && declencheur.closest('#toast')) ? $('#btnPanier') : (declencheur || document.activeElement);
+    dernierFocus = (declencheur && declencheur.closest('#toast')) ? $('#btnPanier') : (declencheur || document.activeElement);
     vue('vuePanier'); majPanier();
     ouvrirDialogue(dlg);
     document.body.classList.add('bloque');
@@ -1019,22 +878,23 @@
   $('#btnCommander').addEventListener('click', function () { majPanier(); vue('vueCommande'); $('#panierTitre').focus(); });
   $('#btnRetour').addEventListener('click', function () { vue('vuePanier'); $('#panierTitre').focus(); });
 
-  /* ===== Vérification des formulaires ===== */
+  /* Vérification des formulaires */
   function valider(form, regles, boite) {
     $$('#' + form.id + ' .msg-erreur').forEach(function (n) { n.parentNode.removeChild(n); });
     $$('#' + form.id + ' .erreur').forEach(function (n) { n.classList.remove('erreur'); });
     $$('#' + form.id + ' [aria-invalid]').forEach(function (n) { n.removeAttribute('aria-invalid'); n.removeAttribute('aria-describedby'); });
     var erreurs = [];
     regles.forEach(function (r) {
-      var el = document.getElementById(r[0]), v = el.value.trim(), msg = null;
+      var el = document.getElementById(r[0]), msg = null;
+      var v = el.type === 'radio' ? (document.querySelector('input[name="' + el.name + '"]:checked') ? 'ok' : '') : el.value.trim();
       if (!v) msg = r[1];
-      else if (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) msg = 'Cette adresse e-mail semble incomplète (exemple : nom@exemple.fr).';
+      else if (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) msg = 'Cette adresse e-mail semble incomplète (exemple : nom@exemple.fr).';
       if (msg) {
         erreurs.push({ id: r[0], msg: msg });
         var p = document.createElement('p');
         p.className = 'msg-erreur'; p.id = 'err-' + r[0]; p.textContent = msg;
         el.closest('.champ').classList.add('erreur');
-        el.insertAdjacentElement('afterend', p);
+        (el.type === 'radio' ? el.closest('.choix') : el).insertAdjacentElement('afterend', p);
         el.setAttribute('aria-invalid', 'true');
         el.setAttribute('aria-describedby', p.id);
       }
@@ -1066,14 +926,15 @@
     });
   }
 
-  /* ===== Envoi de la commande ===== */
+  /* Envoi de la commande */
   $('#formCommande').addEventListener('submit', function (e) {
     e.preventDefault();
     var ok = valider(this, [
       ['oPrenom', 'Indiquez votre prénom.'],
       ['oNom', 'Indiquez votre nom.'],
       ['oEmail', 'Indiquez votre adresse e-mail.'],
-      ['oAdresse', 'Indiquez votre adresse de livraison.']
+      ['oAdresse', 'Indiquez votre adresse de livraison.'],
+      ['oPaiement1', 'Choisissez un mode de paiement.']
     ], $('#erreursCommande'));
     if (!ok) return;
     var t = totaux();
@@ -1081,12 +942,12 @@
     var choix = document.querySelector('input[name="paiement"]:checked');
     var lignes = panier.map(function (l) {
       var b = livre(l.id);
-      return b.title + (b.subtitle ? ' — ' + b.subtitle : '') + ' ×' + l.qty + ' = ' + fmt(b.price * l.qty);
+      return b.title + (b.subtitle ? ' : ' + b.subtitle : '') + ' x' + l.qty + ' = ' + fmt(b.price * l.qty);
     }).join(' | ');
     var btn = $('#btnEnvoyer'), form = this;
     btn.disabled = true; btn.textContent = 'Envoi en cours…';
     envoyer({
-      _subject: 'Commande Kirk — ' + val('oPrenom') + ' ' + val('oNom').toUpperCase() + ' (' + nbLivres(t.nb) + ')',
+      _subject: 'Commande Kirk : ' + val('oPrenom') + ' ' + val('oNom').toUpperCase() + ' (' + nbLivres(t.nb) + ')',
       _template: 'table',
       _replyto: val('oEmail'),
       'Prénom': val('oPrenom'),
@@ -1094,7 +955,7 @@
       'Email': val('oEmail'),
       'Téléphone': val('oTel') || 'Non renseigné',
       'Adresse': val('oAdresse'),
-      'Mode de paiement': choix ? choix.value : 'Non précisé',
+      'Mode de paiement': choix ? choix.value : 'Non précisé',
       'Livres': lignes,
       'Sous-total HT': fmt(t.ht),
       'TVA (5,5%)': fmt(t.tva),
@@ -1107,14 +968,14 @@
       vue('vueMerci'); $('#panierTitre').focus();
     }).catch(function () {
       var b = $('#erreursCommande');
-      b.innerHTML = '<p><strong>L\'envoi n\'a pas fonctionné.</strong></p><p>Vérifiez votre connexion Internet puis réessayez. Si le problème continue, écrivez-nous avec le formulaire de contact en bas de la page.</p>';
+      b.innerHTML = '<p><strong>L\'envoi n\'a pas fonctionné.</strong></p><p>Vérifiez votre connexion Internet puis réessayez dans quelques minutes. Vous pouvez aussi nous écrire par courrier : Kirk Publishing, 37, rue Georges-Médéric, 94700 Maisons-Alfort.</p>';
       b.hidden = false; b.focus();
     }).then(function () {
       btn.disabled = false; btn.textContent = 'Envoyer ma commande';
     });
   });
 
-  /* ===== Formulaire de contact ===== */
+  /* Formulaire de contact */
   $('#formContact').addEventListener('submit', function (e) {
     e.preventDefault();
     var st = $('#statutContact'), form = this;
@@ -1127,7 +988,7 @@
     var btn = $('#btnContact');
     btn.disabled = true; btn.textContent = 'Envoi en cours…';
     envoyer({
-      _subject: 'Message du site — ' + val('cNom'),
+      _subject: 'Message du site : ' + val('cNom'),
       _template: 'table',
       _replyto: val('cEmail'),
       'Nom': val('cNom'),
@@ -1137,27 +998,27 @@
     }).then(function () {
       form.reset();
       st.classList.add('ok');
-      st.textContent = 'Merci ! Votre message a bien été envoyé. Nous vous répondrons rapidement.';
+      st.textContent = 'Merci, votre message a bien été envoyé. Nous vous répondrons rapidement.';
     }).catch(function () {
       st.classList.add('ko');
-      st.textContent = 'L\'envoi n\'a pas fonctionné. Vérifiez votre connexion Internet, puis réessayez.';
+      st.textContent = 'L\'envoi n\'a pas fonctionné. Vérifiez votre connexion Internet, puis réessayez dans quelques minutes, ou écrivez-nous par courrier.';
     }).then(function () {
       btn.disabled = false; btn.textContent = 'Envoyer mon message';
     });
   });
 
-  /* ===== Couverture agrandie ===== */
+  /* Couverture agrandie */
   var dz = $('#zoom');
   function zoomer(id) {
     var b = livre(id); if (!b) return;
     var img = $('#zoomImg');
-    img.src = b.img; img.alt = 'Couverture du livre « ' + b.title + ' »';
-    $('#zoomLegende').textContent = b.title + ' — ' + auteurs(b);
+    img.src = b.img; img.alt = 'Couverture du livre « ' + b.title + ' »';
+    $('#zoomLegende').textContent = b.title + ', ' + auteurs(b);
     ouvrirDialogue(dz);
   }
   dz.addEventListener('click', function (e) { if (!e.target.closest('[data-fermer-zoom]')) fermerDialogue(dz); });
 
-  /* ===== Clics (délégation) ===== */
+  /* Clics */
   document.addEventListener('click', function (e) {
     var el = e.target.closest('button, a'); if (!el) return;
     if (el.hasAttribute('data-ajout')) { ajouter(+el.getAttribute('data-ajout'), el); return; }
@@ -1175,7 +1036,7 @@
     if (el.hasAttribute('data-fermer-zoom')) { fermerDialogue(dz); return; }
   });
 
-  /* ===== Taille du texte (A− / A+) ===== */
+  /* Taille du texte (A− / A+) */
   var ECHELLES = [0.9, 1, 1.15, 1.3, 1.45], iTaille = 1;
   try { var s = localStorage.getItem('ara-taille'); if (s !== null && ECHELLES[+s]) iTaille = +s; } catch (e) { /* rien */ }
   function majTaille() {
@@ -1192,12 +1053,12 @@
   });
   majTaille();
 
-  /* ===== Menu sur mobile ===== */
+  /* Menu sur mobile */
   var btnMenu = $('#btnMenu'), menu = $('#menu');
   function menuOuvert(o) {
     menu.classList.toggle('ouvert', o);
     btnMenu.setAttribute('aria-expanded', String(o));
-    btnMenu.querySelector('.lib').textContent = o ? 'Fermer' : 'Menu';
+    btnMenu.querySelector('.lib').textContent = o ? 'Fermer' : 'Menu';
   }
   btnMenu.addEventListener('click', function () { menuOuvert(!menu.classList.contains('ouvert')); });
   menu.addEventListener('click', function (e) { if (e.target.closest('a')) menuOuvert(false); });
@@ -1205,15 +1066,39 @@
     if (e.key === 'Escape' && menu.classList.contains('ouvert')) { menuOuvert(false); btnMenu.focus(); }
   });
 
-  /* ===== Divers ===== */
+  /* Divers */
   $('#annee').textContent = new Date().getFullYear();
   $('#btnHaut').addEventListener('click', function () {
     var doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({ top: 0, behavior: doux ? 'smooth' : 'auto' });
+    window.scrollTo({ top: 0, behavior: doux ? 'smooth' : 'auto' });
     $('.logo').focus({ preventScroll: true });
   });
-  var entete = $('.entete');
-  window.addEventListener('scroll', function () { entete.classList.toggle('ombre', window.scrollY > 10); }, { passive: true });
+
+  /* Fiche pour les moteurs de recherche, générée depuis le catalogue */
+  try {
+    var abs = function (chemin) { return new URL(chemin, location.href).href; };
+    var ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        { '@type': 'Person', '@id': '#ara', name: 'Ara Krikorian', jobTitle: 'Auteur, historien et éditeur', image: abs('images/ara-krikorian.jpg') },
+        { '@type': 'Organization', '@id': '#kirk', name: 'Kirk Publishing', founder: { '@id': '#ara' }, url: 'http://www.kirk-publishing.com',
+          address: { '@type': 'PostalAddress', streetAddress: '37, rue Georges-Médéric', postalCode: '94700', addressLocality: 'Maisons-Alfort', addressCountry: 'FR' } }
+      ].concat(LIVRES.map(function (b) {
+        var fiche = {
+          '@type': 'Book', name: b.title + (b.subtitle ? ' : ' + b.subtitle : ''), inLanguage: 'fr', image: abs(b.img),
+          author: [b.author].concat(b.coauthor ? [b.coauthor] : []).map(function (n) { return { '@type': 'Person', name: n }; }),
+          publisher: { '@type': 'Organization', name: b.publisher }, description: b.description,
+          offers: { '@type': 'Offer', price: b.price.toFixed(2), priceCurrency: 'EUR' }
+        };
+        if (b.year) fiche.datePublished = String(b.year);
+        if (b.pages) fiche.numberOfPages = b.pages;
+        return fiche;
+      }))
+    });
+    document.head.appendChild(ld);
+  } catch (e) { /* rien */ }
 
   majPanier();
 })();
