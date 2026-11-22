@@ -42,7 +42,7 @@
   }
   @media (min-width: 700px) { html { font-size: calc(125% * var(--echelle)); } }
   @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-  [id] { scroll-margin-top: 100px; }
+  [id] { scroll-margin-top: calc(var(--h-entete, 100px) + 1rem); }
 
   body { margin: 0; background: var(--fond); color: var(--texte); font-family: var(--serif); line-height: 1.6; }
   body.bloque { overflow: hidden; }
@@ -78,7 +78,7 @@
   .btn-plein:hover { background: var(--accent-fonce); border-color: var(--accent-fonce); color: #fff; }
   .btn-contour { background: #fff; border-color: var(--texte); color: var(--texte); }
   .btn-contour:hover { background: var(--fond-2); color: var(--texte); }
-  .btn:disabled { opacity: .6; cursor: wait; }
+  .btn:disabled { opacity: 1; background: #595959; border-color: #595959; color: #fff; cursor: wait; }
 
   /* En-tête */
   .entete { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--filet); }
@@ -102,6 +102,7 @@
   .taille button:disabled { color: #9A9A9A; border-color: #9A9A9A; cursor: not-allowed; }
   .taille button + button:disabled, .taille button:disabled + button { border-left: 1px solid #9A9A9A; }
   .taille-ligne { display: none; }
+  .taille-lib { font-family: var(--sans); font-size: .9rem; color: var(--texte-2); }
   .btn-panier, .btn-menu {
     display: inline-flex; align-items: center; gap: .5rem; min-height: 48px; padding: .4rem 1rem;
     border-radius: 3px; font-family: var(--sans); font-weight: 600; font-size: 1rem;
@@ -165,7 +166,8 @@
 
   /* L'auteur */
   .auteur-grille { display: grid; grid-template-columns: 1.45fr .85fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
-  .auteur-texte p { max-width: 38em; }
+  .auteur-texte p, .kirk-grille > div > p { max-width: 32em; }
+  .etapes, .commander > p { max-width: 34em; }
   .citation { margin: 2.25rem 0 0; padding: 0; }
   .citation p { font-size: 1.3rem; font-style: italic; line-height: 1.5; margin: 0 0 .5rem; max-width: 32em; }
   .citation footer { font-family: var(--sans); font-size: .95rem; color: var(--texte-2); }
@@ -178,7 +180,8 @@
   /* Kirk Publishing */
   .kirk-grille { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
   .adresse { font-style: normal; line-height: 1.7; margin-top: 1.5rem; }
-  .adresse h3 { font-size: 1.2rem; margin-bottom: .3rem; }
+  .adresse-titre { font-size: 1.2rem; margin: 1.5rem 0 .3rem; }
+  .adresse-contact { margin-top: 0; }
   .nouveaute {
     display: grid; grid-template-columns: minmax(140px, 200px) 1fr; gap: 1.25rem 1.75rem; align-items: start;
     padding-top: 1.5rem; border-top: 1px solid var(--texte);
@@ -219,7 +222,7 @@
   .choix label:has(input:checked) { border: 2px solid var(--texte); background: var(--fond-2); }
   .aide-champ { margin: .5rem 0 0; font-family: var(--sans); font-size: .95rem; color: var(--texte-2); }
   .statut { margin: 1rem 0 0; font-family: var(--sans); font-weight: 600; }
-  .statut:empty { display: none; }
+  .statut:empty { margin: 0; }
   .statut.ok { color: var(--vert); }
   .statut.ko { color: var(--accent); }
   .resume-erreurs { margin-bottom: 1.25rem; padding: 1rem 1.25rem; font-family: var(--sans); background: #FFF7F7; border: 2px solid var(--accent); border-radius: 3px; }
@@ -234,7 +237,8 @@
   .pied-nom { margin: 0; font-family: var(--serif); font-size: 1.4rem; font-weight: 600; }
   .pied-sous { color: var(--texte-2); margin-bottom: .8rem; }
   .pied-titre { margin-bottom: .6rem; font-family: var(--sans); font-size: 1rem; font-weight: 700; }
-  .pied ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+  .pied ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .pied ul a { display: inline-block; padding: .55rem 0; }
   .pied-bas { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--filet); }
   .pied-bas p { margin: 0; }
   .btn-haut { min-height: 48px; padding: .4rem 1rem; background: transparent; color: var(--texte); border: 1px solid var(--texte); border-radius: 3px; font-family: var(--sans); font-weight: 600; }
@@ -298,6 +302,8 @@
   .toast button { min-height: 44px; padding: .3rem .9rem; border: 0; border-radius: 3px; font-family: var(--sans); font-weight: 600; white-space: nowrap; }
   .toast .toast-voir { background: #fff; color: var(--texte); }
   .toast .toast-x { background: transparent; color: #fff; font-size: 1.15rem; padding: .3rem .6rem; }
+  .toast :focus-visible, .zoom :focus-visible { outline-color: #fff; }
+  ::placeholder { color: #595959; opacity: 1; }
 
   /* Écrans plus étroits */
   @media (max-width: 1199px) {
@@ -306,11 +312,13 @@
     .menu ul { flex-direction: column; gap: 0; border-top: 1px solid var(--filet); }
     .menu a { padding: .85rem .25rem; font-size: 1.15rem; border-bottom: 1px solid var(--filet); }
     .btn-menu { display: inline-flex; }
+    .menu.ouvert { max-height: calc(100vh - 8rem); max-height: calc(100dvh - 8rem); overflow-y: auto; }
   }
   @media (max-width: 900px) {
     .intro-grille, .auteur-grille, .kirk-grille, .contact-grille { grid-template-columns: 1fr; }
     .portrait { justify-self: start; max-width: 320px; }
     .pied-grille { grid-template-columns: 1fr; gap: 2rem; }
+    .taille-lib { display: none; }
   }
   @media (max-width: 600px) {
     .conteneur { width: min(100% - 2rem, 1180px); }
@@ -318,15 +326,19 @@
     .logo-sous { display: none; }
     .outils .taille { display: none; }
     .menu.ouvert .taille-ligne { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem .25rem .5rem; font-family: var(--sans); font-weight: 600; }
-    .btn-panier, .btn-menu { flex-direction: column; gap: 0; min-width: 64px; min-height: 56px; padding: .3rem .5rem; font-size: .8rem; }
+    .entete-inner { column-gap: .75rem; }
+    .btn-panier, .btn-menu { flex-direction: column; gap: 0; min-width: 72px; min-height: 56px; padding: .3rem .5rem; font-size: .9rem; }
     .nouveaute { grid-template-columns: 1fr; }
     .nouveaute-couv { max-width: 220px; }
     .deux { grid-template-columns: 1fr; }
     .ligne { grid-template-columns: 56px 1fr; }
     .ligne img { width: 56px; }
     .ligne-prix { grid-column: 2; }
-    .toast { flex-wrap: wrap; justify-content: center; text-align: center; }
+    .toast { left: .5rem; right: .5rem; bottom: .5rem; width: auto; max-width: none; transform: translateY(160%); flex-wrap: wrap; gap: .5rem; padding: .6rem 3rem .6rem .9rem; }
+    .toast.visible { transform: none; }
+    .toast .toast-x { position: absolute; top: .25rem; right: .25rem; }
   }
+  @media (max-height: 520px) { .entete { position: static; } }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   }
@@ -335,6 +347,7 @@
 <body>
 
 <a class="evitement" href="#contenu">Aller au contenu</a>
+<p id="annonce" class="vh" role="status" aria-live="polite"></p>
 
 <header class="entete" id="haut">
   <div class="conteneur entete-inner">
@@ -344,25 +357,26 @@
     </a>
 
     <nav class="menu" id="menu" aria-label="Menu principal">
+      <div class="taille-ligne">
+        <span id="lib-taille-mobile">Taille du texte</span>
+        <div class="taille" role="group" aria-labelledby="lib-taille-mobile">
+          <button type="button" data-taille="-1">A−<span class="vh"> Réduire le texte</span></button>
+          <button type="button" data-taille="1">A+<span class="vh"> Agrandir le texte</span></button>
+        </div>
+      </div>
       <ul>
         <li><a href="#livres">Les livres</a></li>
         <li><a href="#auteur">L'auteur</a></li>
         <li><a href="#kirk">Kirk Publishing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="taille-ligne">
-        <span id="lib-taille-mobile">Taille du texte</span>
-        <div class="taille" role="group" aria-labelledby="lib-taille-mobile">
-          <button type="button" data-taille="-1"><span aria-hidden="true">A−</span><span class="vh">Réduire le texte</span></button>
-          <button type="button" data-taille="1"><span aria-hidden="true">A+</span><span class="vh">Agrandir le texte</span></button>
-        </div>
-      </div>
     </nav>
 
     <div class="outils">
+      <span class="taille-lib" aria-hidden="true">Taille du texte</span>
       <div class="taille" role="group" aria-label="Taille du texte">
-        <button type="button" data-taille="-1" title="Réduire le texte"><span aria-hidden="true">A−</span><span class="vh">Réduire le texte</span></button>
-        <button type="button" data-taille="1" title="Agrandir le texte"><span aria-hidden="true">A+</span><span class="vh">Agrandir le texte</span></button>
+        <button type="button" data-taille="-1" title="Réduire le texte">A−<span class="vh"> Réduire le texte</span></button>
+        <button type="button" data-taille="1" title="Agrandir le texte">A+<span class="vh"> Agrandir le texte</span></button>
       </div>
       <button type="button" class="btn-panier" id="btnPanier" data-ouvrir-panier aria-haspopup="dialog">
         <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 2-1.5L22 8H6.2"/></svg>
@@ -457,7 +471,7 @@
           Kirk Publishing<br>
           37, rue Georges-Médéric<br>
           94700 Maisons-Alfort<br>
-          <a href="http://www.kirk-publishing.com" target="_blank" rel="noopener">www.kirk-publishing.com</a>
+          <a href="http://www.kirk-publishing.com">www.kirk-publishing.com</a>
         </address>
       </div>
 
@@ -474,7 +488,7 @@
         </div>
         <div class="nouveaute-achat">
           <p class="livre-prix">25,00&nbsp;€ <small>TTC</small></p>
-          <button type="button" class="btn btn-plein btn-ajout" data-ajout="14">Ajouter au panier</button>
+          <button type="button" class="btn btn-plein btn-ajout" data-ajout="14"><span class="lib-ajout">Ajouter au panier</span><span class="vh">, Le Silence des innocents</span></button>
         </div>
       </article>
     </div>
@@ -485,8 +499,8 @@
       <div>
         <h2 id="titre-contact">Contact</h2>
         <p class="chapeau">Une question sur un livre, une commande ou une dédicace&nbsp;? Écrivez-nous avec ce formulaire, nous vous répondrons dans les meilleurs délais.</p>
-        <address class="adresse">
-          <h3>Adresse postale</h3>
+        <h3 class="adresse-titre">Adresse postale</h3>
+        <address class="adresse adresse-contact">
           Kirk Publishing<br>
           37, rue Georges-Médéric<br>
           94700 Maisons-Alfort
@@ -540,7 +554,7 @@
       </nav>
       <div>
         <h2 class="pied-titre">Kirk Publishing</h2>
-        <p>37, rue Georges-Médéric<br>94700 Maisons-Alfort<br><a href="http://www.kirk-publishing.com" target="_blank" rel="noopener">www.kirk-publishing.com</a></p>
+        <p>37, rue Georges-Médéric<br>94700 Maisons-Alfort<br><a href="http://www.kirk-publishing.com">www.kirk-publishing.com</a></p>
       </div>
     </div>
     <div class="pied-bas">
@@ -640,7 +654,7 @@
 </dialog>
 
 <div class="toast" id="toast">
-  <span id="toastMsg" role="status" aria-live="polite"></span>
+  <span id="toastMsg"></span>
   <button type="button" class="toast-voir" data-ouvrir-panier>Voir le panier</button>
   <button type="button" class="toast-x" id="toastX" aria-label="Fermer ce message">✕</button>
 </div>
@@ -754,7 +768,7 @@
         '<p class="livre-desc">' + esc(b.description) + '</p>' +
         '<div class="livre-achat">' +
           '<p class="livre-prix">' + fmt(b.price) + ' <small>TTC</small></p>' +
-          '<button type="button" class="btn btn-plein btn-ajout" data-ajout="' + b.id + '">Ajouter au panier</button>' +
+          '<button type="button" class="btn btn-plein btn-ajout" data-ajout="' + b.id + '"><span class="lib-ajout">Ajouter au panier</span><span class="vh">, ' + esc(b.title) + '</span></button>' +
         '</div>' +
       '</div>' +
     '</article>';
@@ -797,11 +811,11 @@
           '<p class="ligne-titre">' + esc(b.title) + '</p>' +
           '<p class="ligne-auteur">' + esc(auteurs(b)) + ', ' + fmt(b.price) + ' l\'unité</p>' +
           '<div class="qte" role="group" aria-label="Quantité pour « ' + esc(b.title) + ' »">' +
-            '<button type="button" data-qte="-1" data-id="' + b.id + '" aria-label="Retirer un exemplaire">−</button>' +
-            '<output aria-live="polite">' + l.qty + '</output>' +
-            '<button type="button" data-qte="1" data-id="' + b.id + '" aria-label="Ajouter un exemplaire">+</button>' +
+            '<button type="button" data-qte="-1" data-id="' + b.id + '" aria-label="Retirer un exemplaire de \u00ab\u00a0' + esc(b.title) + '\u00a0\u00bb">−</button>' +
+            '<output>' + l.qty + '</output>' +
+            '<button type="button" data-qte="1" data-id="' + b.id + '" aria-label="Ajouter un exemplaire de \u00ab\u00a0' + esc(b.title) + '\u00a0\u00bb">+</button>' +
           '</div>' +
-          '<button type="button" class="suppr" data-suppr="' + b.id + '">Supprimer</button>' +
+          '<button type="button" class="suppr" data-suppr="' + b.id + '">Supprimer<span class="vh"> \u00ab\u00a0' + esc(b.title) + '\u00a0\u00bb</span></button>' +
         '</div>' +
         '<p class="ligne-prix">' + fmt(b.price * l.qty) + '</p>' +
       '</li>';
@@ -813,15 +827,24 @@
     $('#recap').textContent = 'Votre commande : ' + nbLivres(t.nb) + ', ' + fmt(t.ttc) + ' (frais de port offerts)';
   }
 
-  var minuteurToast;
+  var minuteurToast, boiteToast = $('#toast');
+  function annoncer(m) { var a = $('#annonce'); a.textContent = ''; setTimeout(function () { a.textContent = m; }, 100); }
+  function armerToast() { clearTimeout(minuteurToast); minuteurToast = setTimeout(cacherToast, 12000); }
   function toast(msg) {
     $('#toastMsg').textContent = msg;
-    $('#toast').classList.add('visible');
-    clearTimeout(minuteurToast);
-    minuteurToast = setTimeout(cacherToast, 7000);
+    annoncer(msg);
+    boiteToast.classList.add('visible');
+    armerToast();
   }
-  function cacherToast() { $('#toast').classList.remove('visible'); }
+  function cacherToast() {
+    if (boiteToast.contains(document.activeElement)) $('#btnPanier').focus();
+    boiteToast.classList.remove('visible');
+  }
   $('#toastX').addEventListener('click', cacherToast);
+  boiteToast.addEventListener('mouseenter', function () { clearTimeout(minuteurToast); });
+  boiteToast.addEventListener('focusin', function () { clearTimeout(minuteurToast); });
+  boiteToast.addEventListener('mouseleave', function () { if (boiteToast.classList.contains('visible')) armerToast(); });
+  boiteToast.addEventListener('focusout', function () { if (boiteToast.classList.contains('visible')) armerToast(); });
 
   function ajouter(id, bouton) {
     var b = livre(id); if (!b) return;
@@ -829,12 +852,13 @@
     if (l) l.qty = Math.min(99, l.qty + 1); else panier.push({ id: id, qty: 1 });
     sauver(); majPanier();
     if (bouton) {
+      var lib = bouton.querySelector('.lib-ajout') || bouton;
       bouton.classList.add('ajoute');
-      bouton.textContent = 'Ajouté au panier';
+      lib.textContent = 'Ajouté au panier';
       clearTimeout(bouton._minuteur);
       bouton._minuteur = setTimeout(function () {
         bouton.classList.remove('ajoute');
-        bouton.textContent = 'Ajouter au panier';
+        lib.textContent = 'Ajouter au panier';
       }, 2500);
     }
     toast('« ' + b.title + ' » est dans votre panier.');
@@ -844,10 +868,14 @@
     l.qty = Math.min(99, l.qty + delta);
     if (l.qty <= 0) panier = panier.filter(function (x) { return x.id !== id; });
     sauver(); majPanier();
+    var b = livre(id), q = ligne(id);
+    if (q) annoncer(q.qty + ' exemplaire' + (q.qty > 1 ? 's' : '') + ' de \u00ab\u00a0' + b.title + '\u00a0\u00bb. Total\u00a0: ' + fmt(totaux().ttc) + '.');
+    else annoncer('\u00ab\u00a0' + b.title + '\u00a0\u00bb a été retiré du panier.');
   }
   function supprimer(id) {
     panier = panier.filter(function (x) { return x.id !== id; });
     sauver(); majPanier();
+    annoncer('\u00ab\u00a0' + livre(id).title + '\u00a0\u00bb a été retiré du panier.');
   }
 
   /* Fenêtre du panier */
@@ -875,7 +903,7 @@
     if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) fermerPanier();
   });
 
-  $('#btnCommander').addEventListener('click', function () { majPanier(); vue('vueCommande'); $('#panierTitre').focus(); });
+  $('#btnCommander').addEventListener('click', function () { majPanier(); $('#erreursCommande').hidden = true; vue('vueCommande'); $('#panierTitre').focus(); });
   $('#btnRetour').addEventListener('click', function () { vue('vuePanier'); $('#panierTitre').focus(); });
 
   /* Vérification des formulaires */
@@ -1058,8 +1086,18 @@
   function menuOuvert(o) {
     menu.classList.toggle('ouvert', o);
     btnMenu.setAttribute('aria-expanded', String(o));
+    if (!o) majHautEntete();
     btnMenu.querySelector('.lib').textContent = o ? 'Fermer' : 'Menu';
   }
+  var enteteEl = $('.entete');
+  function majHautEntete() {
+    if (menu.classList.contains('ouvert')) return;
+    var collant = getComputedStyle(enteteEl).position === 'sticky';
+    document.documentElement.style.setProperty('--h-entete', (collant ? enteteEl.offsetHeight : 0) + 'px');
+  }
+  if ('ResizeObserver' in window) new ResizeObserver(majHautEntete).observe(enteteEl);
+  window.addEventListener('resize', majHautEntete);
+  majHautEntete();
   btnMenu.addEventListener('click', function () { menuOuvert(!menu.classList.contains('ouvert')); });
   menu.addEventListener('click', function (e) { if (e.target.closest('a')) menuOuvert(false); });
   document.addEventListener('keydown', function (e) {
