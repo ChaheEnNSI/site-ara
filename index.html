@@ -180,8 +180,6 @@
   /* Kirk Publishing */
   .kirk-grille { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
   .adresse { font-style: normal; line-height: 1.7; margin-top: 1.5rem; }
-  .adresse-titre { font-size: 1.2rem; margin: 1.5rem 0 .3rem; }
-  .adresse-contact { margin-top: 0; }
   .nouveaute {
     display: grid; grid-template-columns: minmax(140px, 200px) 1fr; gap: 1.25rem 1.75rem; align-items: start;
     padding-top: 1.5rem; border-top: 1px solid var(--texte);
@@ -432,7 +430,7 @@
       <h3 class="groupe-titre">Les autres titres</h3>
       <div class="grille-livres" id="grilleAutres"></div>
 
-      <noscript><p class="noscript">Pour voir les livres et commander, activez JavaScript dans votre navigateur, ou écrivez à Kirk Publishing, 37, rue Georges-Médéric, 94700 Maisons-Alfort.</p></noscript>
+      <noscript><p class="noscript">Pour voir les livres et commander, activez JavaScript dans votre navigateur.</p></noscript>
     </div>
   </section>
 
@@ -442,7 +440,7 @@
         <h2 id="titre-auteur">L'auteur</h2>
         <p>Ara Krikorian est une figure centrale de la communauté arménienne de France. Entré très jeune dans le militantisme, il devient porte-parole puis président du Comité de Défense de la Cause Arménienne (CDCA) de 1974 à 2002, association dont il est l'un des piliers fondateurs.</p>
         <p>Il est étroitement associé au processus historique de reconnaissance du génocide des Arméniens, d'abord par le Parlement européen en 1987, puis par la France en 2001. Quarante ans de combat, de plume et de mémoire au service d'un peuple et de sa vérité.</p>
-        <p>En marge de son engagement militant, Ara Krikorian est l'auteur d'ouvrages scientifiques, techniques et historiques. Il a fondé Kirk Publishing, maison d'édition spécialisée dans la thématique arménienne, installée à Maisons-Alfort.</p>
+        <p>En marge de son engagement militant, Ara Krikorian est l'auteur d'ouvrages scientifiques, techniques et historiques. Il a fondé Kirk Publishing, maison d'édition spécialisée dans la thématique arménienne.</p>
         <blockquote class="citation">
           <p>« La langue arménienne est très importante et même déterminante. Il ne faut pas qu'elle devienne une langue de musée, mais une langue vivante. »</p>
           <footer>Ara Krikorian</footer>
@@ -467,12 +465,7 @@
         <p>Fondée par Ara Krikorian, Kirk Publishing est une maison d'édition indépendante dont la vocation est de publier et diffuser des ouvrages à thématique arménienne : histoire, culture, biographies, témoignages.</p>
         <p>Kirk Publishing réunit des voix arméniennes et des auteurs passionnés par ce patrimoine unique. La maison accompagne chaque ouvrage avec un soin éditorial exigeant, de la conception à la diffusion.</p>
         <p>En plus des livres d'Ara Krikorian, Kirk Publishing édite des ouvrages d'autres auteurs engagés dans la préservation et la transmission du patrimoine arménien.</p>
-        <address class="adresse">
-          Kirk Publishing<br>
-          37, rue Georges-Médéric<br>
-          94700 Maisons-Alfort<br>
-          <a href="http://www.kirk-publishing.com">www.kirk-publishing.com</a>
-        </address>
+        <p>Site de l'éditeur&nbsp;: <a href="http://www.kirk-publishing.com">www.kirk-publishing.com</a></p>
       </div>
 
       <article class="nouveaute" aria-labelledby="titre-nouveaute">
@@ -499,12 +492,6 @@
       <div>
         <h2 id="titre-contact">Contact</h2>
         <p class="chapeau">Une question sur un livre, une commande ou une dédicace&nbsp;? Écrivez-nous avec ce formulaire, nous vous répondrons dans les meilleurs délais.</p>
-        <h3 class="adresse-titre">Adresse postale</h3>
-        <address class="adresse adresse-contact">
-          Kirk Publishing<br>
-          37, rue Georges-Médéric<br>
-          94700 Maisons-Alfort
-        </address>
         <!-- TÉLÉPHONE / E-MAIL : à ajouter ici dès qu'ils seront fournis, par exemple :
         <p class="adresse"><strong>Téléphone :</strong> <a href="tel:+33100000000">01 00 00 00 00</a></p>
         -->
@@ -554,7 +541,7 @@
       </nav>
       <div>
         <h2 class="pied-titre">Kirk Publishing</h2>
-        <p>37, rue Georges-Médéric<br>94700 Maisons-Alfort<br><a href="http://www.kirk-publishing.com">www.kirk-publishing.com</a></p>
+        <p><a href="http://www.kirk-publishing.com">www.kirk-publishing.com</a></p>
       </div>
     </div>
     <div class="pied-bas">
@@ -996,7 +983,7 @@
       vue('vueMerci'); $('#panierTitre').focus();
     }).catch(function () {
       var b = $('#erreursCommande');
-      b.innerHTML = '<p><strong>L\'envoi n\'a pas fonctionné.</strong></p><p>Vérifiez votre connexion Internet puis réessayez dans quelques minutes. Vous pouvez aussi nous écrire par courrier : Kirk Publishing, 37, rue Georges-Médéric, 94700 Maisons-Alfort.</p>';
+      b.innerHTML = '<p><strong>L\'envoi n\'a pas fonctionné.</strong></p><p>Vérifiez votre connexion Internet puis réessayez dans quelques minutes.</p>';
       b.hidden = false; b.focus();
     }).then(function () {
       btn.disabled = false; btn.textContent = 'Envoyer ma commande';
@@ -1029,7 +1016,7 @@
       st.textContent = 'Merci, votre message a bien été envoyé. Nous vous répondrons rapidement.';
     }).catch(function () {
       st.classList.add('ko');
-      st.textContent = 'L\'envoi n\'a pas fonctionné. Vérifiez votre connexion Internet, puis réessayez dans quelques minutes, ou écrivez-nous par courrier.';
+      st.textContent = 'L\'envoi n\'a pas fonctionné. Vérifiez votre connexion Internet, puis réessayez dans quelques minutes.';
     }).then(function () {
       btn.disabled = false; btn.textContent = 'Envoyer mon message';
     });
@@ -1121,8 +1108,7 @@
       '@context': 'https://schema.org',
       '@graph': [
         { '@type': 'Person', '@id': '#ara', name: 'Ara Krikorian', jobTitle: 'Auteur, historien et éditeur', image: abs('images/ara-krikorian.jpg') },
-        { '@type': 'Organization', '@id': '#kirk', name: 'Kirk Publishing', founder: { '@id': '#ara' }, url: 'http://www.kirk-publishing.com',
-          address: { '@type': 'PostalAddress', streetAddress: '37, rue Georges-Médéric', postalCode: '94700', addressLocality: 'Maisons-Alfort', addressCountry: 'FR' } }
+        { '@type': 'Organization', '@id': '#kirk', name: 'Kirk Publishing', founder: { '@id': '#ara' }, url: 'http://www.kirk-publishing.com' }
       ].concat(LIVRES.map(function (b) {
         var fiche = {
           '@type': 'Book', name: b.title + (b.subtitle ? ' : ' + b.subtitle : ''), inLanguage: 'fr', image: abs(b.img),
