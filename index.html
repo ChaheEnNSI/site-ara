@@ -16,7 +16,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
-<script>try{var t=localStorage.getItem('ara-taille'),E=[0.9,1,1.15,1.3,1.45];if(t!==null&&E[t])document.documentElement.style.setProperty('--echelle',E[t]);}catch(e){}</script>
+<script>
+(function () {
+  var d = document.documentElement, e = 1;
+  try { var t = localStorage.getItem('ara-taille'), E = [0.9, 1, 1.15, 1.3, 1.45]; if (t !== null && E[t]) { e = E[t]; d.style.setProperty('--echelle', e); } } catch (x) {}
+  /* Forme probable de l'en-tête, pour éviter un saut à l'affichage ; elle est mesurée pour de bon après le chargement */
+  var w = window.innerWidth || 1200, k = e - 0.9;
+  var n = w < 650 + k * 210 ? 3 : w < 990 + k * 300 ? 2 : (e > 1.05 || w < 1210 + k * 200) ? 1 : 0;
+  d.className += ['', ' e-sanslib', ' e-sanslib e-replie', ' e-sanslib e-replie e-mini'][n];
+})();
+</script>
 <style>
   /* Présentation sobre de librairie : fond blanc, typographie de livre, filets fins,
      une seule couleur d'accent (rouge sombre). Texte de 19 à 20 px, contrastes élevés. */
@@ -32,6 +41,8 @@
     --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
     --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --echelle: 1;
+    /* Unité de l'en-tête : suit A−/A+ à 35 % seulement, pour qu'il reste sur une ligne */
+    --u: calc(1rem / var(--echelle) * (1 + (var(--echelle) - 1) * .35));
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -60,7 +71,8 @@
     position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
     overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
   }
-  .conteneur { width: min(100% - 2.5rem, 1180px); margin-inline: auto; }
+  /* Marges latérales fixes : elles ne grossissent pas avec A+, pour garder la place au texte sur petit écran */
+  .conteneur { width: min(100% - 2.5rem / var(--echelle), 1180px); margin-inline: auto; }
   .evitement {
     position: absolute; left: 1rem; top: -200px; z-index: 1000; padding: .75rem 1.25rem;
     background: var(--texte); color: #fff; font-family: var(--sans); font-weight: 600;
@@ -81,35 +93,63 @@
   .btn:disabled { opacity: 1; background: #595959; border-color: #595959; color: #fff; cursor: wait; }
 
   /* En-tête */
-  .entete { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--filet); }
-  .entete-inner { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1.5rem; padding-block: .75rem; }
-  .logo { display: flex; flex-direction: column; margin-right: auto; color: var(--texte); text-decoration: none; line-height: 1.15; }
+  .entete { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--filet); font-size: var(--u); }
+  .entete-inner { display: flex; align-items: center; flex-wrap: wrap; gap: .75em 1.5em; padding-block: .75em; }
+  .logo { display: flex; flex-direction: column; margin-right: auto; color: var(--texte); text-decoration: none; line-height: 1.15; white-space: nowrap; }
   .logo:hover { color: var(--texte); }
-  .logo-nom { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; }
-  .logo-sous { font-family: var(--sans); font-size: .85rem; color: var(--texte-2); }
-  .menu ul { list-style: none; display: flex; flex-wrap: wrap; gap: .25rem; margin: 0; padding: 0; }
-  .menu a { display: block; padding: .5rem .7rem; font-family: var(--sans); font-size: 1rem; color: var(--texte); text-decoration: none; }
+  .logo-nom { font-family: var(--serif); font-weight: 600; font-size: 1.5em; }
+  .logo-sous { font-family: var(--sans); font-size: .85em; color: var(--texte-2); }
+  .menu ul { list-style: none; display: flex; gap: .25em; margin: 0; padding: 0; }
+  .menu a { display: block; padding: .5em .7em; font-family: var(--sans); font-size: 1em; color: var(--texte); text-decoration: none; white-space: nowrap; }
   .menu a:hover { color: var(--accent); text-decoration: underline; }
-  .outils { display: flex; align-items: center; gap: .6rem; }
+  .outils { display: flex; align-items: center; gap: .6em; }
   .taille { display: flex; }
   .taille button {
-    min-width: 50px; min-height: 48px; padding: 0 .6rem;
+    min-width: 50px; min-height: 48px; padding: 0 .6em;
     background: #fff; color: var(--texte); border: 1px solid var(--texte);
-    font-family: var(--sans); font-weight: 600; font-size: 1rem;
+    font-family: var(--sans); font-weight: 600; font-size: 1em;
   }
   .taille button + button { border-left: 0; }
   .taille button:hover { background: var(--fond-2); }
   .taille button:disabled { color: #9A9A9A; border-color: #9A9A9A; cursor: not-allowed; }
   .taille button + button:disabled, .taille button:disabled + button { border-left: 1px solid #9A9A9A; }
   .taille-ligne { display: none; }
-  .taille-lib { font-family: var(--sans); font-size: .9rem; color: var(--texte-2); }
+  .taille-lib { font-family: var(--sans); font-size: .9em; color: var(--texte-2); white-space: nowrap; }
   .btn-panier, .btn-menu {
-    display: inline-flex; align-items: center; gap: .5rem; min-height: 48px; padding: .4rem 1rem;
-    border-radius: 3px; font-family: var(--sans); font-weight: 600; font-size: 1rem;
+    display: inline-flex; align-items: center; gap: .5em; min-height: 48px; padding: .4em 1em;
+    border-radius: 3px; font-family: var(--sans); font-weight: 600; font-size: 1em; white-space: nowrap;
   }
   .btn-panier { background: var(--accent); color: #fff; border: 2px solid var(--accent); }
   .btn-panier:hover { background: var(--accent-fonce); border-color: var(--accent-fonce); }
   .btn-menu { display: none; background: #fff; color: var(--texte); border: 2px solid var(--texte); }
+  .panier-ico { position: relative; display: inline-flex; }
+  .pastille { display: none; }
+
+  /* Formes de l'en-tête, choisies par mesure (script « En-tête ») selon la place disponible :
+     e-sanslib = sans le libellé « Taille du texte », e-replie = menu replié, e-mini = téléphone */
+  .e-sanslib .taille-lib { display: none; }
+  .e-sanslib .entete-inner { column-gap: 1em; }
+  .e-sanslib .menu a { padding-inline: .45em; }
+  .e-sanslib .btn-panier { padding-inline: .8em; }
+  .e-sanslib .taille button { min-width: 46px; }
+  .e-replie .menu { display: none; order: 3; flex-basis: 100%; }
+  .e-replie .menu.ouvert { display: block; max-height: calc(100vh - 8rem); max-height: calc(100dvh - 8rem); overflow-y: auto; overscroll-behavior: contain; }
+  .e-replie .menu ul { flex-direction: column; gap: 0; border-top: 1px solid var(--filet); }
+  .e-replie .menu a { padding: .85em .25em; font-size: 1.15em; border-bottom: 1px solid var(--filet); }
+  .e-replie .btn-menu { display: inline-flex; }
+  .e-mini .entete-inner { column-gap: .5em; padding-block: .55em; }
+  .e-mini .logo-nom { font-size: min(1.2em, 6.2vw); }
+  .e-mini .logo-sous, .e-mini .outils .taille { display: none; }
+  .e-mini .menu.ouvert .taille-ligne { display: flex; align-items: center; justify-content: space-between; gap: 1em; padding: 1em .25em .5em; font-family: var(--sans); font-weight: 600; }
+  .e-mini .btn-panier, .e-mini .btn-menu {
+    flex-direction: column; justify-content: center; gap: 2px; min-width: 64px; min-height: 56px;
+    padding: .3em .55em; font-size: min(.85em, 4.4vw); line-height: 1.1;
+  }
+  .e-mini .nb-texte { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+  .e-mini .pastille:not([hidden]) {
+    display: block; position: absolute; top: -7px; right: -13px; min-width: 20px; height: 20px; padding: 0 5px;
+    border-radius: 10px; background: #fff; color: var(--accent); font-size: 13px; font-weight: 700; line-height: 20px; text-align: center;
+  }
 
   /* Sections */
   .section { padding-block: clamp(3rem, 6vw, 5rem); border-top: 1px solid var(--filet); }
@@ -180,6 +220,7 @@
   /* Kirk Publishing */
   .kirk-grille { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
   .adresse { font-style: normal; line-height: 1.7; margin-top: 1.5rem; }
+  a[href*="kirk-publishing"] { white-space: nowrap; }
   .nouveaute {
     display: grid; grid-template-columns: minmax(140px, 200px) 1fr; gap: 1.25rem 1.75rem; align-items: start;
     padding-top: 1.5rem; border-top: 1px solid var(--texte);
@@ -256,17 +297,23 @@
   .panier-entete h2 { margin: 0; font-size: 1.5rem; }
   .panier-entete h2:focus { outline: none; }
   .btn-fermer { min-height: 48px; padding: .4rem 1rem; background: #fff; color: var(--texte); border: 2px solid var(--texte); border-radius: 3px; font-family: var(--sans); font-weight: 600; }
-  .panier-corps { flex: 1; overflow-y: auto; padding: 1.25rem 1.5rem 2rem; }
+  .panier-corps { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 1.25rem 1.5rem 2rem; }
   .lignes { list-style: none; margin: 0 0 1.25rem; padding: 0; }
-  .ligne { display: grid; grid-template-columns: 64px 1fr auto; gap: 1rem; align-items: start; padding: 1rem 0; border-bottom: 1px solid var(--filet); }
-  .ligne img { width: 64px; }
-  .ligne-titre { margin: 0 0 .15rem; font-weight: 600; line-height: 1.3; }
-  .ligne-auteur { margin: 0 0 .6rem; font-family: var(--sans); font-size: .9rem; color: var(--texte-2); }
-  .qte { display: flex; align-items: center; gap: .5rem; }
+  /* Une ligne : couverture à gauche ; titre, auteur ; quantité et prix sur la même rangée ; « Supprimer » */
+  .ligne {
+    display: grid; grid-template-columns: 64px 1fr auto; column-gap: 1rem; align-items: center;
+    grid-template-areas: "img titre titre" "img auteur auteur" "img qte prix" "img suppr suppr";
+    padding: 1rem 0; border-bottom: 1px solid var(--filet);
+  }
+  .ligne img { grid-area: img; align-self: start; width: 64px; }
+  .ligne-info { display: contents; }
+  .ligne-titre { grid-area: titre; margin: 0 0 .15rem; font-weight: 600; line-height: 1.3; }
+  .ligne-auteur { grid-area: auteur; margin: 0 0 .6rem; font-family: var(--sans); font-size: .9rem; color: var(--texte-2); }
+  .qte { grid-area: qte; display: flex; align-items: center; gap: .5rem; }
   .qte button { width: 48px; height: 48px; display: grid; place-items: center; background: #fff; color: var(--texte); border: 2px solid var(--texte); border-radius: 3px; font-family: var(--sans); font-size: 1.4rem; font-weight: 600; line-height: 1; }
   .qte output { min-width: 2ch; text-align: center; font-family: var(--sans); font-weight: 600; font-size: 1.15rem; }
-  .suppr { margin-top: .3rem; min-height: 44px; padding: .4rem .1rem; background: none; border: 0; color: var(--accent); font-family: var(--sans); font-weight: 600; text-decoration: underline; }
-  .ligne-prix { margin: 0; font-weight: 600; font-size: 1.1rem; white-space: nowrap; }
+  .suppr { grid-area: suppr; justify-self: start; margin-top: .3rem; min-height: 44px; padding: .4rem .1rem; background: none; border: 0; color: var(--accent); font-family: var(--sans); font-weight: 600; text-decoration: underline; }
+  .ligne-prix { grid-area: prix; margin: 0; font-weight: 600; font-size: 1.1rem; white-space: nowrap; text-align: right; }
   .totaux { margin-bottom: 1.25rem; font-family: var(--sans); }
   .totaux div { display: flex; justify-content: space-between; gap: 1rem; padding: .35rem 0; }
   .totaux .total { margin-top: .4rem; padding-top: .7rem; border-top: 2px solid var(--texte); font-size: 1.3rem; font-weight: 700; }
@@ -282,9 +329,9 @@
 
   /* Couverture agrandie */
   .zoom { margin: auto; padding: 0; border: 0; background: none; max-width: 94vw; max-height: 94vh; overflow: visible; text-align: center; }
-  .zoom::backdrop { background: rgba(0,0,0,.85); }
+  .zoom::backdrop { background: rgba(17,17,17,.95); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
   .zoom figure { margin: 0 0 1rem; }
-  .zoom img { max-height: 78vh; width: auto; margin: 0 auto; }
+  .zoom img { max-height: 78vh; max-height: 78dvh; width: auto; margin: 0 auto; }
   .zoom figcaption { margin-top: .9rem; color: #fff; font-size: 1.1rem; }
   .zoom .btn-contour { border-color: #fff; }
 
@@ -303,35 +350,57 @@
   .toast :focus-visible, .zoom :focus-visible { outline-color: #fff; }
   ::placeholder { color: #595959; opacity: 1; }
 
+  /* Survol sur ordinateur : la couverture se soulève légèrement */
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .livre-couv img, .nouveaute-couv img { transition: transform .2s ease, box-shadow .2s ease; }
+    .livre-couv:hover img, .nouveaute-couv:hover img { transform: translateY(-4px); box-shadow: 0 2px 4px rgba(0,0,0,.18), 0 14px 28px rgba(0,0,0,.16); }
+  }
+
   /* Écrans plus étroits */
-  @media (max-width: 1199px) {
-    .menu { display: none; order: 3; flex-basis: 100%; }
-    .menu.ouvert { display: block; }
-    .menu ul { flex-direction: column; gap: 0; border-top: 1px solid var(--filet); }
-    .menu a { padding: .85rem .25rem; font-size: 1.15rem; border-bottom: 1px solid var(--filet); }
-    .btn-menu { display: inline-flex; }
-    .menu.ouvert { max-height: calc(100vh - 8rem); max-height: calc(100dvh - 8rem); overflow-y: auto; }
-  }
   @media (max-width: 900px) {
-    .intro-grille, .auteur-grille, .kirk-grille, .contact-grille { grid-template-columns: 1fr; }
-    .portrait { justify-self: start; max-width: 320px; }
+    .auteur-grille, .kirk-grille, .contact-grille { grid-template-columns: 1fr; }
+    .intro-grille { grid-template-columns: 1fr minmax(180px, 36%); gap: 2rem; align-items: start; }
+    .boutons .btn { flex: 1 1 auto; }
     .pied-grille { grid-template-columns: 1fr; gap: 2rem; }
-    .taille-lib { display: none; }
   }
-  @media (max-width: 600px) {
-    .conteneur { width: min(100% - 2rem, 1180px); }
-    .logo-nom { font-size: 1.15rem; }
-    .logo-sous { display: none; }
-    .outils .taille { display: none; }
-    .menu.ouvert .taille-ligne { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem .25rem .5rem; font-family: var(--sans); font-weight: 600; }
-    .entete-inner { column-gap: .75rem; }
-    .btn-panier, .btn-menu { flex-direction: column; gap: 0; min-width: 72px; min-height: 56px; padding: .3rem .5rem; font-size: .9rem; }
+  @media (max-width: 599px) {
+    .conteneur { width: min(100% - 2rem / var(--echelle), 1180px); }
+
+    /* Ouverture : texte puis portrait, boutons pleine largeur */
+    .intro-grille { grid-template-columns: 1fr; }
+    .intro h1 { font-size: min(2.6rem, 12.5vw); }
+    .portrait { justify-self: start; max-width: 320px; }
+    .boutons .btn { flex: 1 1 100%; }
+
+    /* Livres : couverture à gauche du titre, description et achat dessous */
+    .groupe-titre { margin: 2.75rem 0 0; }
+    .grille-livres { gap: 0; }
+    .livre { display: grid; grid-template-columns: min(7.25rem, 34%) minmax(0, 1fr); column-gap: 1.1rem; align-items: start; padding-block: 1.75rem; border-top: 1px solid var(--filet); }
+    .livre:first-child { border-top: 0; }
+    .livre-couv { aspect-ratio: auto; margin: 0; border: 0; justify-content: flex-start; align-items: flex-start; }
+    .livre-couv img.haut, .livre-couv img.large { width: 100%; height: auto; max-height: none; }
+    .livre-corps { display: contents; }
+    .livre-titre { font-size: 1.2rem; }
+    .livre-entete { min-width: 0; overflow-wrap: break-word; }
+    .livre-meta { margin-bottom: 0; }
+    .livre-desc { grid-column: 1 / -1; margin: 1.1rem 0; }
+    .livre-achat { grid-column: 1 / -1; flex-flow: row wrap; align-items: center; justify-content: space-between; gap: .7rem 1rem; }
+    .livre-achat .btn-ajout { width: auto; flex: 1 1 11rem; }
+    /* Très petit écran avec texte agrandi : plus la place à côté de la couverture, on empile */
+    .grille-livres { container-type: inline-size; }
+    @container (max-width: 13.5em) {
+      .livre { display: flex; flex-direction: column; }
+      .livre-couv { width: 55%; margin-bottom: 1.1rem; }
+    }
+
     .nouveaute { grid-template-columns: 1fr; }
     .nouveaute-couv { max-width: 220px; }
     .deux { grid-template-columns: 1fr; }
-    .ligne { grid-template-columns: 56px 1fr; }
+    .panier-entete { padding: .75rem 1rem; }
+    .panier-entete h2 { font-size: 1.3rem; }
+    .panier-corps { padding: 1rem 1rem 2rem; }
+    .ligne { grid-template-columns: 56px 1fr auto; column-gap: .85rem; }
     .ligne img { width: 56px; }
-    .ligne-prix { grid-column: 2; }
     .toast { left: .5rem; right: .5rem; bottom: .5rem; width: auto; max-width: none; transform: translateY(160%); flex-wrap: wrap; gap: .5rem; padding: .6rem 3rem .6rem .9rem; }
     .toast.visible { transform: none; }
     .toast .toast-x { position: absolute; top: .25rem; right: .25rem; }
@@ -377,8 +446,11 @@
         <button type="button" data-taille="1" title="Agrandir le texte">A+<span class="vh"> Agrandir le texte</span></button>
       </div>
       <button type="button" class="btn-panier" id="btnPanier" data-ouvrir-panier aria-haspopup="dialog">
-        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 2-1.5L22 8H6.2"/></svg>
-        <span>Panier (<span id="nbPanier">0</span>)</span>
+        <span class="panier-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 2-1.5L22 8H6.2"/></svg>
+          <span class="pastille" id="pastille" hidden>0</span>
+        </span>
+        <span>Panier<span class="nb-texte"> (<span id="nbPanier">0</span>)</span></span>
       </button>
       <button type="button" class="btn-menu" id="btnMenu" aria-expanded="false" aria-controls="menu">
         <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -747,11 +819,13 @@
         '<img class="' + forme + '" src="' + b.img + '" width="' + b.w + '" height="' + b.h + '" alt="Couverture du livre « ' + esc(b.title) + ' »" loading="lazy" decoding="async">' +
       '</button>' +
       '<div class="livre-corps">' +
-        (b.isNew ? '<p class="livre-nouveau">Nouveauté</p>' : '') +
-        '<h4 class="livre-titre">' + esc(b.title) + '</h4>' +
-        (b.subtitle ? '<p class="livre-sous">' + esc(b.subtitle) + '</p>' : '') +
-        '<p class="livre-auteur">' + esc(auteurs(b)) + '</p>' +
-        '<p class="livre-meta">' + esc(meta) + (b.preface ? '<br>' + esc(b.preface) : '') + '</p>' +
+        '<div class="livre-entete">' +
+          (b.isNew ? '<p class="livre-nouveau">Nouveauté</p>' : '') +
+          '<h4 class="livre-titre">' + esc(b.title) + '</h4>' +
+          (b.subtitle ? '<p class="livre-sous">' + esc(b.subtitle) + '</p>' : '') +
+          '<p class="livre-auteur">' + esc(auteurs(b)) + '</p>' +
+          '<p class="livre-meta">' + esc(meta) + (b.preface ? '<br>' + esc(b.preface) : '') + '</p>' +
+        '</div>' +
         '<p class="livre-desc">' + esc(b.description) + '</p>' +
         '<div class="livre-achat">' +
           '<p class="livre-prix">' + fmt(b.price) + ' <small>TTC</small></p>' +
@@ -782,6 +856,8 @@
   function majPanier() {
     var t = totaux();
     $('#nbPanier').textContent = t.nb;
+    $('#pastille').textContent = t.nb > 99 ? '99+' : t.nb;
+    $('#pastille').hidden = !t.nb;
     var liste = $('#panierListe');
     if (!t.nb) {
       liste.innerHTML = '<div class="vide"><p>Votre panier est vide.</p><p>Pour ajouter un livre, cliquez sur « Ajouter au panier » sous sa couverture.</p>' +
@@ -794,7 +870,7 @@
       var b = livre(l.id);
       return '<li class="ligne">' +
         '<img src="' + b.img + '" alt="" width="64" height="' + Math.round(64 * b.h / b.w) + '">' +
-        '<div>' +
+        '<div class="ligne-info">' +
           '<p class="ligne-titre">' + esc(b.title) + '</p>' +
           '<p class="ligne-auteur">' + esc(auteurs(b)) + ', ' + fmt(b.price) + ' l\'unité</p>' +
           '<div class="qte" role="group" aria-label="Quantité pour « ' + esc(b.title) + ' »">' +
@@ -1064,6 +1140,7 @@
     b.addEventListener('click', function () {
       iTaille = Math.max(0, Math.min(ECHELLES.length - 1, iTaille + (+b.getAttribute('data-taille'))));
       majTaille();
+      ajusterEntete();
     });
   });
   majTaille();
@@ -1084,7 +1161,41 @@
   }
   if ('ResizeObserver' in window) new ResizeObserver(majHautEntete).observe(enteteEl);
   window.addEventListener('resize', majHautEntete);
-  majHautEntete();
+
+  /* En-tête : on essaie la forme la plus complète, puis on simplifie tant que tout ne tient pas sur une ligne.
+     Fonctionne quelle que soit la largeur de l'écran, le zoom du navigateur ou la taille du texte (A−/A+). */
+  var racine = document.documentElement, enteteInner = $('.entete-inner');
+  var FORMES = [[], ['e-sanslib'], ['e-sanslib', 'e-replie'], ['e-sanslib', 'e-replie', 'e-mini']];
+  function appliquerForme(n) {
+    ['e-sanslib', 'e-replie', 'e-mini'].forEach(function (c) { racine.classList.toggle(c, FORMES[n].indexOf(c) >= 0); });
+  }
+  function tientSurUneLigne() {
+    var blocs = [$('.logo'), $('.outils')];
+    if (getComputedStyle(menu).display !== 'none') blocs.push(menu);
+    var r0 = blocs[0].getBoundingClientRect(), centre = r0.top + r0.height / 2;
+    return enteteInner.scrollWidth <= enteteInner.clientWidth + 1 && blocs.every(function (b) {
+      var r = b.getBoundingClientRect();
+      return Math.abs(r.top + r.height / 2 - centre) < 8;
+    });
+  }
+  function ajusterEntete() {
+    var ouvert = menu.classList.contains('ouvert'), focus = document.activeElement, n;
+    menu.classList.remove('ouvert');
+    for (n = 0; n < FORMES.length - 1; n++) { appliquerForme(n); if (tientSurUneLigne()) break; }
+    appliquerForme(n);
+    if (ouvert && racine.classList.contains('e-replie')) menu.classList.add('ouvert');
+    else if (ouvert) menuOuvert(false);
+    if (focus && focus !== document.activeElement && document.body.contains(focus)) focus.focus({ preventScroll: true });
+    majHautEntete();
+  }
+  var largeurPrec = window.innerWidth;
+  window.addEventListener('resize', function () {
+    if (window.innerWidth === largeurPrec) return; /* sur téléphone, la barre d'adresse qui apparaît ne compte pas */
+    largeurPrec = window.innerWidth;
+    ajusterEntete();
+  });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajusterEntete);
+  ajusterEntete();
   btnMenu.addEventListener('click', function () { menuOuvert(!menu.classList.contains('ouvert')); });
   menu.addEventListener('click', function (e) { if (e.target.closest('a')) menuOuvert(false); });
   document.addEventListener('keydown', function (e) {
