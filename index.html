@@ -138,7 +138,7 @@
   .e-replie .menu a { padding: .85em .25em; font-size: 1.15em; border-bottom: 1px solid var(--filet); }
   .e-replie .btn-menu { display: inline-flex; }
   .e-mini .entete-inner { column-gap: .5em; padding-block: .55em; }
-  .e-mini .logo-nom { font-size: min(1.2em, 6.2vw); }
+  .e-mini .logo-nom { font-size: min(1.2em, 5.8vw); }
   .e-mini .logo-sous, .e-mini .outils .taille { display: none; }
   .e-mini .menu.ouvert .taille-ligne { display: flex; align-items: center; justify-content: space-between; gap: 1em; padding: 1em .25em .5em; font-family: var(--sans); font-weight: 600; }
   .e-mini .btn-panier, .e-mini .btn-menu {
@@ -197,6 +197,7 @@
   .livre-auteur { margin: 0 0 .2rem; font-family: var(--sans); font-weight: 600; font-size: 1rem; }
   .livre-meta { margin: 0 0 .85rem; font-family: var(--sans); font-size: .9rem; color: var(--texte-2); }
   .livre-desc { margin: 0 0 1.25rem; }
+  .livre-voir { display: none; }
   .livre-achat { margin-top: auto; display: flex; flex-direction: column; gap: .7rem; }
   .livre-prix { margin: 0; font-size: 1.5rem; font-weight: 600; }
   .livre-prix small { font-family: var(--sans); font-size: .85rem; font-weight: 400; color: var(--texte-2); }
@@ -220,7 +221,8 @@
   /* Kirk Publishing */
   .kirk-grille { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
   .adresse { font-style: normal; line-height: 1.7; margin-top: 1.5rem; }
-  a[href*="kirk-publishing"] { white-space: nowrap; }
+  /* L'adresse du site passe à la ligne d'un bloc ; elle ne se coupe que si elle ne tient vraiment pas */
+  a[href*="kirk-publishing"] { display: inline-block; max-width: 100%; overflow-wrap: anywhere; }
   .nouveaute {
     display: grid; grid-template-columns: minmax(140px, 200px) 1fr; gap: 1.25rem 1.75rem; align-items: start;
     padding-top: 1.5rem; border-top: 1px solid var(--texte);
@@ -327,6 +329,33 @@
   .merci { padding: 1.5rem 0; }
   .merci-titre { font-size: 1.5rem; font-weight: 600; color: var(--vert); }
 
+  /* Fiche d'un livre (téléphone) : feuille qui monte du bas de l'écran */
+  .fiche {
+    position: fixed; inset: auto 0 0 0; z-index: 300; margin: 0 auto; padding: 0; border: 0;
+    width: min(100%, 560px); max-width: 100%; max-height: 92vh; max-height: 92dvh;
+    border-radius: 14px 14px 0 0; background: #fff; color: var(--texte); box-shadow: 0 -8px 30px rgba(0,0,0,.2);
+  }
+  .fiche[open] { display: flex; flex-direction: column; animation: monte .25s ease-out; }
+  @keyframes monte { from { transform: translateY(100%); } }
+  .fiche::backdrop { background: rgba(0,0,0,.5); }
+  .fiche-entete { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .6rem 1rem .6rem 1.25rem; border-bottom: 1px solid var(--filet); }
+  .fiche-entete p { margin: 0; font-family: var(--sans); font-weight: 600; font-size: .9rem; color: var(--texte-2); }
+  .fiche-corps { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 1.5rem 1.25rem 1.25rem; }
+  .fiche-couv { display: block; width: 52%; max-width: 230px; margin: 0 auto 1.5rem; padding: 0; border: 0; background: none; cursor: zoom-in; }
+  .fiche-couv.large { width: 72%; max-width: 320px; }
+  .fiche-couv img { width: 100%; box-shadow: 0 1px 2px rgba(0,0,0,.2), 0 6px 18px rgba(0,0,0,.12); }
+  .fiche h2 { font-size: 1.5rem; margin: 0 0 .25rem; }
+  .fiche h2:focus { outline: none; }
+  .fiche .livre-meta { margin-bottom: 1.1rem; }
+  .fiche-desc { margin: 0; }
+  .fiche-pied {
+    display: flex; align-items: center; gap: 1rem; padding: .85rem 1.25rem calc(.85rem + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--filet); background: #fff;
+  }
+  .fiche-pied { flex-wrap: wrap; row-gap: .6rem; }
+  .fiche-pied .livre-prix { margin: 0; white-space: nowrap; }
+  .fiche-pied .btn-ajout { flex: 1 1 11rem; width: auto; padding-inline: .9rem; white-space: nowrap; }
+
   /* Couverture agrandie */
   .zoom { margin: auto; padding: 0; border: 0; background: none; max-width: 94vw; max-height: 94vh; overflow: visible; text-align: center; }
   .zoom::backdrop { background: rgba(17,17,17,.95); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
@@ -358,13 +387,13 @@
 
   /* Écrans plus étroits */
   @media (max-width: 900px) {
-    .auteur-grille, .kirk-grille, .contact-grille { grid-template-columns: 1fr; }
+    .auteur-grille, .kirk-grille, .contact-grille { grid-template-columns: minmax(0, 1fr); }
     .intro-grille { grid-template-columns: 1fr minmax(180px, 36%); gap: 2rem; align-items: start; }
     .boutons .btn { flex: 1 1 auto; }
-    .pied-grille { grid-template-columns: 1fr; gap: 2rem; }
+    .pied-grille { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   }
   @media (max-width: 599px) {
-    .conteneur { width: min(100% - 2rem / var(--echelle), 1180px); }
+    .conteneur { width: min(100% - 2.5rem / var(--echelle), 1180px); }
 
     /* Ouverture : texte puis portrait, boutons pleine largeur */
     .intro-grille { grid-template-columns: 1fr; }
@@ -372,25 +401,29 @@
     .portrait { justify-self: start; max-width: 320px; }
     .boutons .btn { flex: 1 1 100%; }
 
-    /* Livres : couverture à gauche du titre, description et achat dessous */
-    .groupe-titre { margin: 2.75rem 0 0; }
-    .grille-livres { gap: 0; }
-    .livre { display: grid; grid-template-columns: min(7.25rem, 34%) minmax(0, 1fr); column-gap: 1.1rem; align-items: start; padding-block: 1.75rem; border-top: 1px solid var(--filet); }
-    .livre:first-child { border-top: 0; }
-    .livre-couv { aspect-ratio: auto; margin: 0; border: 0; justify-content: flex-start; align-items: flex-start; }
-    .livre-couv img.haut, .livre-couv img.large { width: 100%; height: auto; max-height: none; }
-    .livre-corps { display: contents; }
-    .livre-titre { font-size: 1.2rem; }
+    /* Livres : grille de 2 colonnes (couverture, titre, auteur, prix) ; le résumé s'ouvre dans la fiche */
+    .groupe-titre { margin: 3rem 0 1.75rem; }
+    #livres > .conteneur { container-type: inline-size; }
+    .grille-livres { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.1rem; }
+    .livre-couv { aspect-ratio: 2 / 3; margin: 0 0 .9rem; border-bottom: 0; cursor: pointer; }
+    .livre .livre-sous, .livre .livre-meta, .livre .livre-desc { display: none; }
     .livre-entete { min-width: 0; overflow-wrap: break-word; }
-    .livre-meta { margin-bottom: 0; }
-    .livre-desc { grid-column: 1 / -1; margin: 1.1rem 0; }
-    .livre-achat { grid-column: 1 / -1; flex-flow: row wrap; align-items: center; justify-content: space-between; gap: .7rem 1rem; }
-    .livre-achat .btn-ajout { width: auto; flex: 1 1 11rem; }
-    /* Très petit écran avec texte agrandi : plus la place à côté de la couverture, on empile */
-    .grille-livres { container-type: inline-size; }
-    @container (max-width: 13.5em) {
-      .livre { display: flex; flex-direction: column; }
-      .livre-couv { width: 55%; margin-bottom: 1.1rem; }
+    .livre .livre-nouveau { margin-bottom: .2rem; font-size: .8rem; }
+    .livre .livre-titre { font-size: 1.05rem; line-height: 1.25; margin-bottom: .25rem; cursor: pointer; }
+    .livre .livre-auteur { font-size: .85rem; font-weight: 400; color: var(--texte-2); margin-bottom: 0; cursor: pointer; }
+    .livre-voir {
+      display: inline-block; margin: 0 0 .55rem; padding: .55rem 0; min-height: 44px; background: none; border: 0;
+      color: var(--accent); font-family: var(--sans); font-weight: 600; font-size: .85rem; text-align: left;
+      text-decoration: underline; text-underline-offset: .2em;
+    }
+    .livre .livre-achat { gap: .5rem; }
+    .livre .livre-prix { font-size: 1.15rem; }
+    .livre-achat .btn-ajout { min-height: 48px; padding: .5rem .6rem; font-size: .9rem; }
+    .livre-achat .lib-long { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+    /* Texte très agrandi : une seule colonne, couverture centrée */
+    @container (max-width: 13em) {
+      .grille-livres { grid-template-columns: 1fr; }
+      .livre-couv { width: 60%; margin-inline: auto; }
     }
 
     .nouveaute { grid-template-columns: 1fr; }
@@ -553,7 +586,7 @@
         </div>
         <div class="nouveaute-achat">
           <p class="livre-prix">25,00&nbsp;€ <small>TTC</small></p>
-          <button type="button" class="btn btn-plein btn-ajout" data-ajout="14"><span class="lib-ajout">Ajouter au panier</span><span class="vh">, Le Silence des innocents</span></button>
+          <button type="button" class="btn btn-plein btn-ajout" data-ajout="14"><span class="lib-ajout"><span class="lib-verbe">Ajouter</span><span class="lib-long"> au panier</span></span><span class="vh">, Le Silence des innocents</span></button>
         </div>
       </article>
     </div>
@@ -704,6 +737,26 @@
   </div>
 </dialog>
 
+<dialog class="fiche" id="fiche" aria-labelledby="ficheTitre">
+  <div class="fiche-entete">
+    <p>Fiche du livre</p>
+    <button type="button" class="btn-fermer" data-fermer-fiche>Fermer</button>
+  </div>
+  <div class="fiche-corps">
+    <button type="button" class="fiche-couv" id="ficheCouv" aria-label="Agrandir la couverture"><img id="ficheImg" alt=""></button>
+    <p class="livre-nouveau" id="ficheNouveau" hidden>Nouveauté</p>
+    <h2 id="ficheTitre" tabindex="-1"></h2>
+    <p class="livre-sous" id="ficheSous"></p>
+    <p class="livre-auteur" id="ficheAuteur"></p>
+    <p class="livre-meta" id="ficheMeta"></p>
+    <p class="fiche-desc" id="ficheDesc"></p>
+  </div>
+  <div class="fiche-pied">
+    <p class="livre-prix" id="fichePrix"></p>
+    <button type="button" class="btn btn-plein btn-ajout" id="ficheAjout"><span class="lib-ajout"><span class="lib-verbe">Ajouter</span><span class="lib-long"> au panier</span></span><span class="vh" id="ficheAjoutVh"></span></button>
+  </div>
+</dialog>
+
 <dialog class="zoom" id="zoom" aria-label="Couverture agrandie">
   <figure>
     <img id="zoomImg" alt="">
@@ -815,7 +868,7 @@
     var meta = [b.publisher, b.year, b.pages ? b.pages + ' pages' : null].filter(Boolean).join(', ');
     var forme = (b.h / b.w >= 1.25) ? 'haut' : 'large';
     return '<article class="livre">' +
-      '<button type="button" class="livre-couv" data-zoom="' + b.id + '" aria-label="Voir en grand la couverture de « ' + esc(b.title) + ' »">' +
+      '<button type="button" class="livre-couv" data-zoom="' + b.id + '" aria-label="Voir « ' + esc(b.title) + ' » en détail">' +
         '<img class="' + forme + '" src="' + b.img + '" width="' + b.w + '" height="' + b.h + '" alt="Couverture du livre « ' + esc(b.title) + ' »" loading="lazy" decoding="async">' +
       '</button>' +
       '<div class="livre-corps">' +
@@ -824,12 +877,13 @@
           '<h4 class="livre-titre">' + esc(b.title) + '</h4>' +
           (b.subtitle ? '<p class="livre-sous">' + esc(b.subtitle) + '</p>' : '') +
           '<p class="livre-auteur">' + esc(auteurs(b)) + '</p>' +
+          '<button type="button" class="livre-voir" data-fiche="' + b.id + '">Voir le résumé<span class="vh"> de « ' + esc(b.title) + ' »</span></button>' +
           '<p class="livre-meta">' + esc(meta) + (b.preface ? '<br>' + esc(b.preface) : '') + '</p>' +
         '</div>' +
         '<p class="livre-desc">' + esc(b.description) + '</p>' +
         '<div class="livre-achat">' +
           '<p class="livre-prix">' + fmt(b.price) + ' <small>TTC</small></p>' +
-          '<button type="button" class="btn btn-plein btn-ajout" data-ajout="' + b.id + '"><span class="lib-ajout">Ajouter au panier</span><span class="vh">, ' + esc(b.title) + '</span></button>' +
+          '<button type="button" class="btn btn-plein btn-ajout" data-ajout="' + b.id + '"><span class="lib-ajout"><span class="lib-verbe">Ajouter</span><span class="lib-long"> au panier</span></span><span class="vh">, ' + esc(b.title) + '</span></button>' +
         '</div>' +
       '</div>' +
     '</article>';
@@ -915,13 +969,13 @@
     if (l) l.qty = Math.min(99, l.qty + 1); else panier.push({ id: id, qty: 1 });
     sauver(); majPanier();
     if (bouton) {
-      var lib = bouton.querySelector('.lib-ajout') || bouton;
+      var verbe = bouton.querySelector('.lib-verbe');
       bouton.classList.add('ajoute');
-      lib.textContent = 'Ajouté au panier';
+      if (verbe) verbe.textContent = 'Ajouté';
       clearTimeout(bouton._minuteur);
       bouton._minuteur = setTimeout(function () {
         bouton.classList.remove('ajoute');
-        lib.textContent = 'Ajouter au panier';
+        if (verbe) verbe.textContent = 'Ajouter';
       }, 2500);
     }
     toast('« ' + b.title + ' » est dans votre panier.');
@@ -1109,11 +1163,58 @@
   }
   dz.addEventListener('click', function (e) { if (!e.target.closest('[data-fermer-zoom]')) fermerDialogue(dz); });
 
+  /* Fiche d'un livre (sur téléphone, la liste ne montre pas le résumé : il s'ouvre ici) */
+  var df = $('#fiche'), ficheId = null, focusAvantFiche = null;
+  var surTelephone = window.matchMedia('(max-width: 599px)');
+  function ouvrirFiche(id, declencheur) {
+    var b = livre(id); if (!b) return;
+    ficheId = id; focusAvantFiche = declencheur || document.activeElement;
+    var img = $('#ficheImg');
+    img.src = b.img; img.width = b.w; img.height = b.h;
+    $('#ficheCouv').className = 'fiche-couv' + (b.h / b.w >= 1.25 ? '' : ' large');
+    $('#ficheCouv').setAttribute('aria-label', 'Agrandir la couverture de « ' + b.title + ' »');
+    $('#ficheNouveau').hidden = !b.isNew;
+    $('#ficheTitre').textContent = b.title;
+    $('#ficheSous').textContent = b.subtitle || ''; $('#ficheSous').hidden = !b.subtitle;
+    $('#ficheAuteur').textContent = auteurs(b);
+    $('#ficheMeta').innerHTML = esc([b.publisher, b.year, b.pages ? b.pages + ' pages' : null].filter(Boolean).join(', ')) + (b.preface ? '<br>' + esc(b.preface) : '');
+    $('#ficheDesc').textContent = b.description;
+    $('#fichePrix').innerHTML = fmt(b.price) + ' <small>TTC</small>';
+    $('#ficheAjoutVh').textContent = ', ' + b.title;
+    $('.fiche-corps').scrollTop = 0;
+    ouvrirDialogue(df);
+    document.body.classList.add('bloque');
+    $('#ficheTitre').focus();
+  }
+  df.addEventListener('close', function () {
+    document.body.classList.remove('bloque');
+    if (focusAvantFiche && document.body.contains(focusAvantFiche)) { try { focusAvantFiche.focus({ preventScroll: true }); } catch (e) { focusAvantFiche.focus(); } }
+  });
+  df.addEventListener('click', function (e) {
+    if (e.target !== df) return;
+    var r = df.getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) fermerDialogue(df);
+  });
+  $('#ficheCouv').addEventListener('click', function () { zoomer(ficheId); });
+  $('#ficheAjout').addEventListener('click', function () {
+    var id = ficheId;
+    fermerDialogue(df);
+    ajouter(id, document.querySelector('.livre [data-ajout="' + id + '"]'));
+  });
+
   /* Clics */
   document.addEventListener('click', function (e) {
+    var texte = e.target.closest('.livre .livre-titre, .livre .livre-auteur');
+    if (texte && surTelephone.matches) { var c = texte.closest('.livre').querySelector('[data-zoom]'); ouvrirFiche(+c.getAttribute('data-zoom'), c); return; }
     var el = e.target.closest('button, a'); if (!el) return;
     if (el.hasAttribute('data-ajout')) { ajouter(+el.getAttribute('data-ajout'), el); return; }
-    if (el.hasAttribute('data-zoom')) { zoomer(+el.getAttribute('data-zoom')); return; }
+    if (el.hasAttribute('data-fiche')) { ouvrirFiche(+el.getAttribute('data-fiche'), el); return; }
+    if (el.hasAttribute('data-zoom')) {
+      if (el.classList.contains('livre-couv') && surTelephone.matches) ouvrirFiche(+el.getAttribute('data-zoom'), el);
+      else zoomer(+el.getAttribute('data-zoom'));
+      return;
+    }
+    if (el.hasAttribute('data-fermer-fiche')) { fermerDialogue(df); return; }
     if (el.hasAttribute('data-ouvrir-panier')) { cacherToast(); ouvrirPanier(el); return; }
     if (el.hasAttribute('data-qte')) {
       var id = +el.getAttribute('data-id'), d = el.getAttribute('data-qte');
